@@ -8,13 +8,12 @@
 
 import Foundation
 
-final class Trip: NSObject {
-    let name: String
+
+struct Trip: Identifiable {
+    typealias RawIdentifier = String
     
-    
-    init(name: String) {
-        self.name = name
-    }
+    let id: Identifier<Trip> = .init(rawValue: UUID().uuidString)
+    let title: String
 }
 
 

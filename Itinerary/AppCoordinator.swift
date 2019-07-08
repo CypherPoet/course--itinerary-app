@@ -12,6 +12,8 @@ final class AppCoordinator: NavigationCoordinator {
     var navController: UINavigationController
     private let window: UIWindow
     
+    private var tripsCoordinator: TripsCoordinator?
+    
     
     init(
         navController: UINavigationController,
@@ -26,7 +28,7 @@ final class AppCoordinator: NavigationCoordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         
-//        showMain()
+        showTrips()
     }
 }
 
@@ -35,6 +37,10 @@ final class AppCoordinator: NavigationCoordinator {
 
 extension AppCoordinator {
     
+    func showTrips() {
+        tripsCoordinator = TripsCoordinator(navController: navController)
+        
+        tripsCoordinator?.start()
+    }
 
 }
-
