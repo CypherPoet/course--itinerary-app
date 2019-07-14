@@ -10,14 +10,9 @@ import UIKit
 
 final class TripsCoordinator: NavigationCoordinator {
     var navController: UINavigationController
-    private let modelController: TripsModelController
     
-    
-    init(
-        navController: UINavigationController
-    ) {
+    init(navController: UINavigationController) {
         self.navController = navController
-        self.modelController = TripsModelController()
     }
 }
 
@@ -32,27 +27,9 @@ extension TripsCoordinator: Coordinator {
         )
        
         tripsListVC.title = "My Trips"
-        navController.pushViewController(tripsListVC, animated: true)
+        tripsListVC.modelController = TripsModelController()
         
-
-        modelController.loadTrips { (dataResult) in
-            let dummyTrips = [
-                Trip(title: "Trip to NYC"),
-                Trip(title: "Trip to Chicago"),
-                Trip(title: "Trip to London"),
-                Trip(title: "Trip to Paris"),
-            ]
-            
-            tripsListVC.trips = dummyTrips
-            
-            // TODO: Use real results instead of dummy data
-//            switch dataResult {
-//            case .success(let trips):
-//                tripsListVC.trips = trips
-//            case .failure:
-//                tripsListVC.trips = []
-//            }
-        }
+        navController.pushViewController(tripsListVC, animated: true)
     }
     
 }

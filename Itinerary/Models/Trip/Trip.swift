@@ -14,6 +14,7 @@ struct Trip: Identifiable {
     
     let id: Identifier<Trip> = .init(rawValue: UUID().uuidString)
     let title: String
+    let shortDescription: String
 }
 
 
