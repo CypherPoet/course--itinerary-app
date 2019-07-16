@@ -58,7 +58,12 @@ private extension TripTableViewCell {
     func setupView() {
         Style.TripCard.standard.apply(to: cardContainerView)
         
-        Style.Label.largeBoldTitle.apply(to: titleLabel)
-        Style.Label.subheadline.apply(to: subtitleLabel)
+        Style.Label.largeBoldTitle
+            .withAdjustment({ $0.textColor = UIColor.Theme.accent1 })
+            .apply(to: titleLabel)
+        
+        Style.Label.subheadline
+            .withAdjustment({ $0.textColor = UIColor.Theme.accent2 })
+            .apply(to: subtitleLabel)
     }
 }

@@ -42,6 +42,7 @@ enum Style {
         static let standard = UIViewStyle<UIView> { view in
             view.addShadow(radius: 10, color: UIColor.tertiaryLabel.cgColor)
             view.layer.cornerRadius = view.frame.width * 0.05
+            view.backgroundColor = UIColor.Theme.background
         }
     }
     
