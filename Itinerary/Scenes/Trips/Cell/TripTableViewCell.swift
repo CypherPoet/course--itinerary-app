@@ -56,10 +56,9 @@ private extension TripTableViewCell {
     
     
     func setupView() {
-        cardContainerView.layer.shadowOpacity = 1
-        cardContainerView.layer.shadowRadius = 10
-        cardContainerView.layer.shadowOffset = .zero
-        cardContainerView.layer.shadowColor = UIColor.tertiaryLabel.cgColor
-        cardContainerView.layer.cornerRadius = cardContainerView.frame.width * 0.05
+        Style.TripCard.standard.apply(to: cardContainerView)
+        
+        Style.Label.largeBoldTitle.apply(to: titleLabel)
+        Style.Label.subheadline.apply(to: subtitleLabel)
     }
 }

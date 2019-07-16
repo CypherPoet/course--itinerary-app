@@ -2,6 +2,21 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Whitney-Black.ttf</string>
+		<string>Whitney-BlackItalic.ttf</string>
+		<string>Whitney-Bold.ttf</string>
+		<string>Whitney-BoldItalic.ttf</string>
+		<string>Whitney-Book.ttf</string>
+		<string>Whitney-BookItalic.ttf</string>
+		<string>Whitney-Light.ttf</string>
+		<string>Whitney-LightItalic.ttf</string>
+		<string>Whitney-Medium.ttf</string>
+		<string>Whitney-MediumItalic.ttf</string>
+		<string>Whitney-Semibold.ttf</string>
+		<string>Whitney-SemiboldItalic.ttf</string>
+	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>
