@@ -26,10 +26,11 @@ extension TripsCoordinator: Coordinator {
             named: R.storyboard.trips.name
         )
        
-        tripsListVC.title = "My Trips"
+        tripsListVC.navigationItem.title = "My Trips"
         tripsListVC.modelController = TripsModelController()
         
-        navController.pushViewController(tripsListVC, animated: true)
+        navController.navigationBar.prefersLargeTitles = true
+        
+        navController.setViewControllers([tripsListVC], animated: true)
     }
-    
 }

@@ -28,6 +28,8 @@ final class AppCoordinator: NavigationCoordinator {
         window.rootViewController = rootViewController
         window.makeKeyAndVisible()
         
+        Appearance.apply(to: window)
+        
         showTrips()
     }
 }

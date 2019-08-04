@@ -12,9 +12,15 @@ import Foundation
 struct Trip: Identifiable {
     typealias RawIdentifier = String
     
-    let id: Identifier<Trip> = .init(rawValue: UUID().uuidString)
+    internal let id: Identifier<Trip> = .init(rawValue: UUID().uuidString)
     let title: String
     let shortDescription: String
+}
+
+extension Trip: Hashable {
+    func combine(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
 }
 
 

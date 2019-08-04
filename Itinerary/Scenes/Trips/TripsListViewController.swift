@@ -12,34 +12,73 @@ import UIKit
 final class TripsListViewController: UIViewController, Storyboarded {
     @IBOutlet private var tableView: UITableView!
     
-    typealias DataSource = TableViewDataSource<Trip>
-    private var dataSource: DataSource?
     
-
     var modelController: TripsModelController!
     
-    var trips: [Trip] = []
     
+    private var trips: [Trip] = [] {
+        didSet {
+            DispatchQueue.main.async { self.updateSnapshot(withNew: self.trips) }
+        }
+    }
+    
+    private var dataSource: DataSource?
+}
+
+
+// MARK: - Table View Structure
+extension TripsListViewController {
+    enum TableSection: CaseIterable {
+        case all
+    }
+    
+    typealias DataSource = UITableViewDiffableDataSource<TableSection, Trip>
+    typealias DataSourceSnapshot = NSDiffableDataSourceSnapshot<TableSection, Trip>
+}
+
+
+// MARK: - Lifecycle
+extension TripsListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         assert(modelController != nil, "No modelController was set")
         
+        dataSource = makeTableViewDataSource()
         setupTableView()
         loadTrips()
     }
 }
 
 
+// MARK: - Event Handling
+extension TripsListViewController {
+    
+    @IBAction func addButtonTapped() {
+        
+    }
+}
+
+// MARK: - Private Helpers
 private extension TripsListViewController {
     
-    func makeTableViewDataSource(with trips: [Trip]) -> DataSource {
-        return TableViewDataSource(
-            models: trips,
-            cellReuseIdentifier: R.reuseIdentifier.tripTableCell.identifier,
-            cellConfigurator: { [weak self] (trip, cell) in
+    func makeTableViewDataSource() -> DataSource {
+        DataSource(
+            tableView: tableView,
+            cellProvider: {
+                [weak self] (tableView, indexPath, trip) -> UITableViewCell? in
+                
+                guard let cell = tableView.dequeueReusableCell(
+                    withIdentifier: R.reuseIdentifier.tripTableCell,
+                    for: indexPath
+                ) else {
+                    preconditionFailure("Unable to dequeue cell")
+                }
+                
                 self?.configure(cell, with: trip)
+                
+                return cell
             }
         )
     }
@@ -58,11 +97,6 @@ private extension TripsListViewController {
                 ]
 
                 self.trips = dummyTrips
-                let dataSource = self.makeTableViewDataSource(with: self.trips)
-                
-                self.dataSource = dataSource
-                self.tableView.dataSource = dataSource
-                self.tableView.reloadData()
             }
             
             // TODO: Use real results instead of dummy data
@@ -76,11 +110,7 @@ private extension TripsListViewController {
     }
     
     
-    func configure(_ cell: UITableViewCell, with trip: Trip) {
-        guard let cell = cell as? TripTableViewCell else {
-            preconditionFailure("Unknown cell type")
-        }
-        
+    func configure(_ cell: TripTableViewCell, with trip: Trip) {
         cell.viewModel = TripTableViewCell.ViewModel(
             title: trip.title,
             subtitle: trip.shortDescription
@@ -95,4 +125,15 @@ private extension TripsListViewController {
         )
     }
 
+    
+    func updateSnapshot(withNew trips: [Trip]) {
+        guard let dataSource = dataSource else { return }
+        
+        let snapshot = dataSource.snapshot()
+        
+        snapshot.appendSections([.all])
+        snapshot.appendItems(trips)
+        
+        dataSource.apply(snapshot, animatingDifferences: true)
+    }
 }

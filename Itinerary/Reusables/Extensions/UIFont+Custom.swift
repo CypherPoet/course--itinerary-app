@@ -13,6 +13,7 @@ extension UIFont {
 
     enum Custom {
         private static let pointSize: CGFloat = UIFont.labelFontSize
+        
         private static let fallbackLight = UIFont.systemFont(ofSize: pointSize, weight: .light)
         private static let fallbackRegular = UIFont.systemFont(ofSize: pointSize, weight: .regular)
         private static let fallbackMedium = UIFont.systemFont(ofSize: pointSize, weight: .medium)

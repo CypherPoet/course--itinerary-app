@@ -10,7 +10,7 @@ import UIKit
 
 
 /// This struct provides a mechanism for initialization with a closure that
-/// takes the `UIView` and performs styling operations.
+/// takes a `UIView` and performs styling operations.
 struct UIViewStyle<T: UIView> {
     let styling: (T) -> Void
     
@@ -40,7 +40,7 @@ enum Style {
     
     enum TripCard {
         static let standard = UIViewStyle<UIView> { view in
-            view.addShadow(radius: 10, color: UIColor.tertiaryLabel.cgColor)
+            view.addShadow(radius: 7, color: UIColor.Theme.accent2.cgColor)
             view.layer.cornerRadius = view.frame.width * 0.05
             view.backgroundColor = UIColor.Theme.background
         }
