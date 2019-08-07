@@ -58,8 +58,8 @@ private extension TripTableViewCell {
     func setupView() {
         Style.TripCard.standard.apply(to: cardContainerView)
         
-        Style.Label.largeBoldTitle
-            .withAdjustment({ $0.textColor = UIColor.Theme.accent1 })
+        Style.Label
+            .largeBoldTitle(color: UIColor.Theme.accent1)
             .apply(to: titleLabel)
         
         Style.Label.subheadline

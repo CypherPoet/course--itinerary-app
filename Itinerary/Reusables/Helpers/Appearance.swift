@@ -13,6 +13,7 @@ enum Appearance {
     
     enum Constants {
         static let modalCornerRadius: CGFloat = 14
+        static let buttonCornerRadius: CGFloat = 8
     }
     
  

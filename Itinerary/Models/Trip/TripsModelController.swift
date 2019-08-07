@@ -9,9 +9,18 @@
 import Foundation
 
 
+protocol TripsModelControllerObserver: class {
+    func modelController(_ controller: TripsModelController, didUpdate trips: [Trip])
+}
+
+
 final class TripsModelController {
     private let dataLoader: DataLoader
-    private(set) var trips: [Trip] = []
+    private var tripsObservers: [TripsModelControllerObserver] = []
+    
+    private(set) var trips: [Trip] = [] {
+        didSet { notifyTripsObservers() }
+    }
 
     
     init(dataLoader: DataLoader = DataLoader()) {
@@ -19,10 +28,23 @@ final class TripsModelController {
     }
 }
 
-
+// MARK: - Core Methods
 extension TripsModelController {
     
-    func loadTrips(then completionHandler: @escaping (Result<[Trip], Error>) -> Void) {
+    typealias CompletionHandler = (Result<[Trip], Error>) -> Void
+    
+    
+    func addTripsObserver(_ observer: TripsModelControllerObserver) {
+        tripsObservers.append(observer)
+    }
+    
+    
+    func removeTripsObserver(_ observer: TripsListViewController) {
+//        tripsObservers.remove(at: index)
+    }
+    
+    
+    func loadTrips(then completionHandler: CompletionHandler?) {
         let url = Endpoint.Trip.localURL
         
         dataLoader.load(from: url) { [weak self] dataResult in
@@ -34,31 +56,53 @@ extension TripsModelController {
                 
                 do {
                     self.trips = try decoder.decode([Trip].self, from: data)
-                    completionHandler(.success(self.trips))
+                    completionHandler?(.success(self.trips))
                 } catch {
                     print("Error while attempting to decode trips: \(error.localizedDescription)")
-                    completionHandler(.failure(error))
+                    completionHandler?(.failure(error))
                 }
             case .failure(let error):
                 print("Error while attempting to load trips: \(error.localizedDescription)")
-                completionHandler(.failure(error))
+                completionHandler?(.failure(error))
             }
+            
+            let dummyTrips = [
+                Trip(title: "Trip to NYC", shortDescription: "🗽⚡️"),
+                Trip(title: "Trip to Chicago", shortDescription: "🏰⚡️"),
+                Trip(title: "Trip to London", shortDescription: "🇬🇧⚡️"),
+                Trip(title: "Trip to Paris", shortDescription: "🇫🇷⚡️"),
+            ]
+
+            self.trips = dummyTrips
         }
     }
     
     
     
-    func create(_ trip: Trip) {
+    func create(_ trip: Trip, then completionHandler: CompletionHandler?) {
+        self.trips.append(trip)
+        completionHandler?(.success(trips))
+    }
+    
+    
+    func update(_ updatedTrip: Trip, then completionHandler: CompletionHandler?) {
         
     }
     
     
-    func update(_ updatedTrip: Trip) {
+    func deleteTrip(withID: Trip, then completionHandler: CompletionHandler?) {
         
     }
+}
+
+
+// MARK: - Private Helpers
+
+extension TripsModelController {
     
-    
-    func deleteTrip(withID: Trip) {
-        
+    func notifyTripsObservers() {
+        tripsObservers.forEach {
+            $0.modelController(self, didUpdate: trips)
+        }
     }
 }

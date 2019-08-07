@@ -9,20 +9,27 @@
 import UIKit
 
 
+protocol TripsListViewControllerDelegate: class {
+    func viewControllerDidSelectAddTrip(_ controller: TripsListViewController)
+}
+
+
 final class TripsListViewController: UIViewController, Storyboarded {
     @IBOutlet private var tableView: UITableView!
     
     
+    weak var delegate: TripsListViewControllerDelegate?
     var modelController: TripsModelController!
     
     
-    private var trips: [Trip] = [] {
-        didSet {
-            DispatchQueue.main.async { self.updateSnapshot(withNew: self.trips) }
-        }
-    }
+//    var trips: [Trip] = [] {
+//        didSet {
+//            DispatchQueue.main.async { self.updateSnapshot(withNew: self.trips) }
+//        }
+//    }
     
-    private var dataSource: DataSource?
+    private var currentDataSnapshot: DataSourceSnapshot!
+    private var dataSource: DataSource!
 }
 
 
@@ -37,6 +44,7 @@ extension TripsListViewController {
 }
 
 
+
 // MARK: - Lifecycle
 extension TripsListViewController {
     
@@ -45,8 +53,10 @@ extension TripsListViewController {
         
         assert(modelController != nil, "No modelController was set")
         
+        modelController.addTripsObserver(self)
         dataSource = makeTableViewDataSource()
         setupTableView()
+
         loadTrips()
     }
 }
@@ -56,9 +66,19 @@ extension TripsListViewController {
 extension TripsListViewController {
     
     @IBAction func addButtonTapped() {
-        
+        delegate?.viewControllerDidSelectAddTrip(self)
     }
 }
+
+
+// MARK: - TripsModelControllerObserver
+extension TripsListViewController: TripsModelControllerObserver {
+
+    func modelController(_ controller: TripsModelController, didUpdate trips: [Trip]) {
+        DispatchQueue.main.async { self.updateSnapshot(withNew: trips) }
+    }
+}
+
 
 // MARK: - Private Helpers
 private extension TripsListViewController {
@@ -86,19 +106,6 @@ private extension TripsListViewController {
     
     func loadTrips() {
         modelController.loadTrips { [weak self] (dataResult) in
-            guard let self = self else { return }
-            
-            DispatchQueue.main.async {
-                let dummyTrips = [
-                    Trip(title: "Trip to NYC", shortDescription: "🗽⚡️"),
-                    Trip(title: "Trip to Chicago", shortDescription: "🏰⚡️"),
-                    Trip(title: "Trip to London", shortDescription: "🇬🇧⚡️"),
-                    Trip(title: "Trip to Paris", shortDescription: "🇫🇷⚡️"),
-                ]
-
-                self.trips = dummyTrips
-            }
-            
             // TODO: Use real results instead of dummy data
             //            switch dataResult {
             //            case .success(let trips):
@@ -129,11 +136,11 @@ private extension TripsListViewController {
     func updateSnapshot(withNew trips: [Trip]) {
         guard let dataSource = dataSource else { return }
         
-        let snapshot = dataSource.snapshot()
+        currentDataSnapshot = DataSourceSnapshot()
         
-        snapshot.appendSections([.all])
-        snapshot.appendItems(trips)
+        currentDataSnapshot.appendSections([.all])
+        currentDataSnapshot.appendItems(trips)
         
-        dataSource.apply(snapshot, animatingDifferences: true)
+        dataSource.apply(currentDataSnapshot, animatingDifferences: true)
     }
 }
