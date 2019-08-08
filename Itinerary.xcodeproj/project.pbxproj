@@ -11,6 +11,7 @@
 		F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31624A1229949AF0059E49C /* AppDelegate.swift */; };
 		F31624A9229949B00059E49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31624A8229949B00059E49C /* Assets.xcassets */; };
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
+		F36ADB0A22FCC1720028DEA3 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */; };
 		F374B78122F6FA88006A712B /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374B77F22F6FA87006A712B /* AddTripViewController.swift */; };
 		F374B78222F6FA88006A712B /* AddTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374B78022F6FA88006A712B /* AddTrip.storyboard */; };
 		F38A01AF22D1AB1A00D8C5F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */; };
@@ -26,7 +27,6 @@
 		F38A01CE22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01CD22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift */; };
 		F38A01D322D2A5DC00D8C5F3 /* TripsCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01D222D2A5DC00D8C5F3 /* TripsCoordinator.swift */; };
 		F38A01D522D2AA9C00D8C5F3 /* TripsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01D422D2AA9C00D8C5F3 /* TripsListViewController.swift */; };
-		F38A01D722D2AC8800D8C5F3 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F38A01D622D2AC8700D8C5F3 /* Trips.storyboard */; };
 		F38A01D922D2BA3E00D8C5F3 /* TableViewDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01D822D2BA3E00D8C5F3 /* TableViewDataSource.swift */; };
 		F38A01DD22D304B200D8C5F3 /* TripTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01DB22D304B200D8C5F3 /* TripTableViewCell.swift */; };
 		F38A01DE22D304B200D8C5F3 /* TripTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F38A01DC22D304B200D8C5F3 /* TripTableViewCell.xib */; };
@@ -76,6 +76,7 @@
 		F31624A8229949B00059E49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31624AB229949B00059E49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F31624AD229949B00059E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F36ADB0B22FCC1720028DEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trips.storyboard; sourceTree = "<group>"; };
 		F374B77F22F6FA87006A712B /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		F374B78022F6FA88006A712B /* AddTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTrip.storyboard; sourceTree = "<group>"; };
 		F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,7 +92,6 @@
 		F38A01CD22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "FileManager+UserDocumentsDirectory.swift"; sourceTree = "<group>"; };
 		F38A01D222D2A5DC00D8C5F3 /* TripsCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsCoordinator.swift; sourceTree = "<group>"; };
 		F38A01D422D2AA9C00D8C5F3 /* TripsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripsListViewController.swift; sourceTree = "<group>"; };
-		F38A01D622D2AC8700D8C5F3 /* Trips.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Trips.storyboard; sourceTree = "<group>"; };
 		F38A01D822D2BA3E00D8C5F3 /* TableViewDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataSource.swift; sourceTree = "<group>"; };
 		F38A01DB22D304B200D8C5F3 /* TripTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TripTableViewCell.swift; sourceTree = "<group>"; };
 		F38A01DC22D304B200D8C5F3 /* TripTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TripTableViewCell.xib; sourceTree = "<group>"; };
@@ -278,7 +278,7 @@
 		F38A01D122D29E7700D8C5F3 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
-				F38A01D622D2AC8700D8C5F3 /* Trips.storyboard */,
+				F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */,
 				F38A01D222D2A5DC00D8C5F3 /* TripsCoordinator.swift */,
 				F38A01D422D2AA9C00D8C5F3 /* TripsListViewController.swift */,
 				F374B77C22F6FA06006A712B /* Add Trip */,
@@ -471,7 +471,7 @@
 				F38EF83922B127CD0031BE50 /* .swiftlint.yml in Resources */,
 				F3FB563622DBC8FC00BB31E7 /* WhitneyMedium.ttf in Resources */,
 				F3FB567022DBC94600BB31E7 /* GothamPro-Black.ttf in Resources */,
-				F38A01D722D2AC8800D8C5F3 /* Trips.storyboard in Resources */,
+				F36ADB0A22FCC1720028DEA3 /* Trips.storyboard in Resources */,
 				F3FB566922DBC94600BB31E7 /* GothamPro-Italic.ttf in Resources */,
 				F3FB563B22DBC8FC00BB31E7 /* Whitney-Bold.ttf in Resources */,
 				F3FB563722DBC8FC00BB31E7 /* Whitney-Light.ttf in Resources */,
@@ -620,6 +620,14 @@
 				F31624AB229949B00059E49C /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F36ADB0B22FCC1720028DEA3 /* Base */,
+			);
+			name = Trips.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
