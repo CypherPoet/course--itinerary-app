@@ -80,7 +80,7 @@ extension TripsModelController {
     
     
     func create(_ trip: Trip, then completionHandler: CompletionHandler? = nil) {
-        self.trips.append(trip)
+        trips.append(trip)
         completionHandler?(.success(trips))
     }
     
@@ -90,8 +90,13 @@ extension TripsModelController {
     }
     
     
-    func deleteTrip(withID: Trip, then completionHandler: CompletionHandler? = nil) {
+    func delete(_ trip: Trip, then completionHandler: CompletionHandler? = nil) {
+        guard let index = trips.firstIndex(of: trip) else {
+            preconditionFailure("Unable to find index for trip")
+        }
         
+        trips.remove(at: index)
+        completionHandler?(.success(trips))
     }
 }
 

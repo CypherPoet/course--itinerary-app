@@ -21,13 +21,7 @@ final class TripsListViewController: UIViewController, Storyboarded {
     weak var delegate: TripsListViewControllerDelegate?
     var modelController: TripsModelController!
     
-    
-//    var trips: [Trip] = [] {
-//        didSet {
-//            DispatchQueue.main.async { self.updateSnapshot(withNew: self.trips) }
-//        }
-//    }
-    
+
     private var currentDataSnapshot: DataSourceSnapshot!
     private var dataSource: DataSource!
 }
@@ -130,6 +124,8 @@ private extension TripsListViewController {
             TripTableViewCell.nib,
             forCellReuseIdentifier: R.nib.tripTableViewCell.identifier
         )
+        
+        tableView.delegate = self
     }
 
     
@@ -142,5 +138,37 @@ private extension TripsListViewController {
         currentDataSnapshot.appendItems(trips)
         
         dataSource.apply(currentDataSnapshot, animatingDifferences: true)
+    }
+    
+    
+    func deleteTrip(at indexPath: IndexPath, then completionHandler: @escaping (Bool) -> Void) {
+        guard let tripToDelete = dataSource.itemIdentifier(for: indexPath) else {
+            preconditionFailure("Unable to find trip to delete")
+        }
+        
+        modelController.delete(tripToDelete)
+        completionHandler(true)
+    }
+}
+
+
+// MARK: - UITableViewDelegate
+extension TripsListViewController: UITableViewDelegate {
+    
+    func tableView(
+        _ tableView: UITableView,
+        trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let deleteAction = UIContextualAction(
+            style: .destructive,
+            title: nil,
+            handler: { [weak self] (_, _, completionHandler: @escaping (Bool) -> Void) in
+                self?.deleteTrip(at: indexPath, then: completionHandler)
+            }
+        )
+        
+        deleteAction.image = UIImage(systemName: "trash.fill")
+        
+        return UISwipeActionsConfiguration(actions: [deleteAction])
     }
 }
