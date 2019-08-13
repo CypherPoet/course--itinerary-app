@@ -15,11 +15,12 @@ protocol AddTripViewControllerDelegate: class {
 }
 
 
-class AddTripViewController: UIViewController {
+class AddTripViewController: UITableViewController {
     @IBOutlet private var destinationTextField: UITextField!
     @IBOutlet private var destinationTextFieldLabel: UILabel!
     @IBOutlet private var doneButton: UIBarButtonItem!
     @IBOutlet private var headlineLabel: UILabel!
+    @IBOutlet var imagePickerButton: UIButton!
     
     
     weak var delegate: AddTripViewControllerDelegate?
@@ -29,13 +30,30 @@ class AddTripViewController: UIViewController {
 
 // MARK: - Computeds
 extension AddTripViewController {
+    var canUsePhotoLibrary: Bool { UIImagePickerController.isSourceTypeAvailable(.photoLibrary) }
     
     var newTripFromChanges: Trip {
         guard let destination = destinationTextField.text else {
             preconditionFailure("No text value found in destination field")
         }
         
-        return Trip(title: destination, shortDescription: "")
+        let imageData = imagePickerButton.imageView?.image?.jpegData(compressionQuality: 0.8)
+        
+        return Trip(
+            title: destination,
+            shortDescription: "",
+            primaryImageData: imageData
+        )
+    }
+    
+    
+    var tripPhotoImagePicker: UIImagePickerController {
+        let picker = UIImagePickerController()
+        
+        picker.allowsEditing = true
+        picker.delegate = self
+        
+        return picker
     }
 }
 
@@ -79,9 +97,21 @@ extension AddTripViewController {
     @IBAction func destinationTextFieldChanged() {
         doneButton.isEnabled = destinationTextField.hasText
     }
+    
+    
+    @IBAction func imagePickerButtonTapped() {
+        let imagePicker = tripPhotoImagePicker
+        
+        if canUsePhotoLibrary {
+            tripPhotoImagePicker.sourceType = .photoLibrary
+        }
+        
+        present(imagePicker, animated: true)
+    }
 }
 
 
+// MARK: - Private Helpers
 private extension AddTripViewController {
     
     func setupUI() {
@@ -91,17 +121,42 @@ private extension AddTripViewController {
         
         Style.Label.formLabel.apply(to: destinationTextFieldLabel)
         Style.TextField.inset().apply(to: destinationTextField)
+        Style.Button.systemImage(named: "camera").apply(to: imagePickerButton)
     }
     
     
     func submitTripData() {
         let newTrip = newTripFromChanges
         
-        modelController.create(newTrip) { [weak self] result in
+        modelController.create(newTrip) { [weak self] _ in
             self?.delegate?.viewController(self!, didAdd: newTrip)
         }
+    }
+    
+    
+    func save(pickedImage: Data) {
+
+    }
+}
+
+
+// MARK: - UIImagePickerControllerDelegate
+extension AddTripViewController: UIImagePickerControllerDelegate {
+    
+    func imagePickerController(
+        _ picker: UIImagePickerController,
+        didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
+    ) {
+        if let image = info[.editedImage] as? UIImage {
+            DispatchQueue.main.async {
+                self.imagePickerButton.setImage(image, for: .normal)
+            }
+        }
+        
+        dismiss(animated: true)
     }
 }
 
 
 extension AddTripViewController: Storyboarded {}
+extension AddTripViewController: UINavigationControllerDelegate {}

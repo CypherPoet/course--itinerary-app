@@ -105,22 +105,22 @@ private extension TripsListViewController {
     
     
     func loadTrips() {
-        modelController.loadTrips { [weak self] (dataResult) in
-            // TODO: Use real results instead of dummy data
-            //            switch dataResult {
-            //            case .success(let trips):
-            //                tripsListVC.trips = trips
-            //            case .failure:
-            //                tripsListVC.trips = []
-            //            }
-        }
+        modelController.loadTrips()
     }
     
     
     func configure(_ cell: TripTableViewCell, with trip: Trip) {
+        let primaryImage: UIImage?
+        if let primaryImageData = trip.primaryImageData {
+            primaryImage = UIImage(data: primaryImageData)
+        } else {
+            primaryImage = nil
+        }
+        
         cell.viewModel = TripTableViewCell.ViewModel(
             title: trip.title,
-            subtitle: trip.shortDescription
+            subtitle: trip.shortDescription,
+            primaryImage: primaryImage
         )
     }
     

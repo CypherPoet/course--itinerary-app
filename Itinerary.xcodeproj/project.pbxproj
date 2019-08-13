@@ -11,6 +11,8 @@
 		F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31624A1229949AF0059E49C /* AppDelegate.swift */; };
 		F31624A9229949B00059E49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31624A8229949B00059E49C /* Assets.xcassets */; };
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
+		F360E95722FE9873005A0795 /* DataTaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95622FE9873005A0795 /* DataTaskToken.swift */; };
+		F360E95922FE9895005A0795 /* TaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95822FE9895005A0795 /* TaskToken.swift */; };
 		F36ADB0A22FCC1720028DEA3 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */; };
 		F374B78122F6FA88006A712B /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374B77F22F6FA87006A712B /* AddTripViewController.swift */; };
 		F374B78222F6FA88006A712B /* AddTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374B78022F6FA88006A712B /* AddTrip.storyboard */; };
@@ -76,6 +78,8 @@
 		F31624A8229949B00059E49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31624AB229949B00059E49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F31624AD229949B00059E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F360E95622FE9873005A0795 /* DataTaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Networking/DataTaskToken.swift"; sourceTree = "<group>"; };
+		F360E95822FE9895005A0795 /* TaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Protocols/TaskToken.swift"; sourceTree = "<group>"; };
 		F36ADB0B22FCC1720028DEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trips.storyboard; sourceTree = "<group>"; };
 		F374B77F22F6FA87006A712B /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		F374B78022F6FA88006A712B /* AddTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTrip.storyboard; sourceTree = "<group>"; };
@@ -204,6 +208,14 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F360E95522FE9853005A0795 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				F360E95622FE9873005A0795 /* DataTaskToken.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		F374B77C22F6FA06006A712B /* Add Trip */ = {
 			isa = PBXGroup;
 			children = (
@@ -226,6 +238,7 @@
 		F38A01B322D1ABF500D8C5F3 /* Reusables */ = {
 			isa = PBXGroup;
 			children = (
+				F360E95522FE9853005A0795 /* Networking */,
 				F350F9B022FB1352002A1F23 /* Views */,
 				F38A01CC22D1CE6F00D8C5F3 /* Extensions */,
 				F38A01C922D1CDC000D8C5F3 /* Constants */,
@@ -243,6 +256,7 @@
 				F38A01B822D1B19B00D8C5F3 /* NavigationCoordinator.swift */,
 				F38A01BA22D1B19C00D8C5F3 /* Storyboarded.swift */,
 				F38A01C522D1BAC300D8C5F3 /* Identity.swift */,
+				F360E95822FE9895005A0795 /* TaskToken.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -585,6 +599,7 @@
 			files = (
 				F38A01BB22D1B19C00D8C5F3 /* Coordinator.swift in Sources */,
 				F38A01BD22D1B19C00D8C5F3 /* NavigationControlling.swift in Sources */,
+				F360E95722FE9873005A0795 /* DataTaskToken.swift in Sources */,
 				F38A01D922D2BA3E00D8C5F3 /* TableViewDataSource.swift in Sources */,
 				F38A01B122D1AB9000D8C5F3 /* AppCoordinator.swift in Sources */,
 				F38A01CB22D1CDCE00D8C5F3 /* Endpoint.swift in Sources */,
@@ -605,6 +620,7 @@
 				F38A01C822D1C0B300D8C5F3 /* DataLoader.swift in Sources */,
 				F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */,
 				F38A01BE22D1B19C00D8C5F3 /* Storyboarded.swift in Sources */,
+				F360E95922FE9895005A0795 /* TaskToken.swift in Sources */,
 				F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */,
 				F38EF83C22B128660031BE50 /* R.generated.swift in Sources */,
 				F39C045122DE1D750053C76E /* Style.swift in Sources */,

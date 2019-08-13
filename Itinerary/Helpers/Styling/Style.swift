@@ -91,6 +91,17 @@ enum Style {
             button.backgroundColor = UIColor.Theme.tint
             button.tintColor = UIColor.Theme.accent1
         }
+        
+        
+        static func systemImage(named imageName: String) -> UIViewStyle<UIButton> {
+            UIViewStyle<UIButton> { button in
+                button.layer.cornerRadius = Appearance.Constants.buttonCornerRadius
+                button.clipsToBounds = true
+                button.backgroundColor = UIColor.systemGray4.withAlphaComponent(0.3)
+                button.tintColor = UIColor.Theme.tint
+                button.setImage(UIImage(systemName: imageName), for: .normal)
+            }
+        }
     }
     
     enum TextField {

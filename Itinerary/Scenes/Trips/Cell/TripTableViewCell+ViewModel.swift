@@ -6,14 +6,15 @@
 //  Copyright © 2019 Brian Sipple. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 extension TripTableViewCell {
     
     struct ViewModel {
         var title: String
-        var subtitle: String
+        var subtitle: String?
+        var primaryImage: UIImage?
     }
 }
 
@@ -23,5 +24,5 @@ extension TripTableViewCell {
 extension TripTableViewCell.ViewModel {
     
     var titleText: String { title }
-    var subtitleText: String { subtitle }
+    var subtitleText: String? { subtitle }
 }

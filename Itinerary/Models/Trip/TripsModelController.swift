@@ -44,7 +44,7 @@ extension TripsModelController {
     }
     
     
-    func loadTrips(then completionHandler: CompletionHandler?) {
+    func loadTrips(then completionHandler: CompletionHandler? = nil) {
         let url = Endpoint.Trip.localURL
         
         dataLoader.load(from: url) { [weak self] dataResult in
@@ -79,18 +79,18 @@ extension TripsModelController {
     
     
     
-    func create(_ trip: Trip, then completionHandler: CompletionHandler?) {
+    func create(_ trip: Trip, then completionHandler: CompletionHandler? = nil) {
         self.trips.append(trip)
         completionHandler?(.success(trips))
     }
     
     
-    func update(_ updatedTrip: Trip, then completionHandler: CompletionHandler?) {
+    func update(_ updatedTrip: Trip, then completionHandler: CompletionHandler? = nil) {
         
     }
     
     
-    func deleteTrip(withID: Trip, then completionHandler: CompletionHandler?) {
+    func deleteTrip(withID: Trip, then completionHandler: CompletionHandler? = nil) {
         
     }
 }
