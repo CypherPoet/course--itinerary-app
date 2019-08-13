@@ -14,6 +14,11 @@
 		F360E95722FE9873005A0795 /* DataTaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95622FE9873005A0795 /* DataTaskToken.swift */; };
 		F360E95922FE9895005A0795 /* TaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95822FE9895005A0795 /* TaskToken.swift */; };
 		F36ADB0A22FCC1720028DEA3 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */; };
+		F36C60862302D84900705F7B /* UIViewController+Computeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60812302D84800705F7B /* UIViewController+Computeds.swift */; };
+		F36C60872302D84900705F7B /* UIViewController+DisplayAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60822302D84800705F7B /* UIViewController+DisplayAlertMessage.swift */; };
+		F36C60882302D84900705F7B /* UIViewController+DisplayPromptMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60832302D84800705F7B /* UIViewController+DisplayPromptMessage.swift */; };
+		F36C60892302D84900705F7B /* UIViewController+AddAndRemoveChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60842302D84800705F7B /* UIViewController+AddAndRemoveChild.swift */; };
+		F36C608A2302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60852302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift */; };
 		F374B78122F6FA88006A712B /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374B77F22F6FA87006A712B /* AddTripViewController.swift */; };
 		F374B78222F6FA88006A712B /* AddTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374B78022F6FA88006A712B /* AddTrip.storyboard */; };
 		F38A01AF22D1AB1A00D8C5F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */; };
@@ -81,6 +86,11 @@
 		F360E95622FE9873005A0795 /* DataTaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Networking/DataTaskToken.swift"; sourceTree = "<group>"; };
 		F360E95822FE9895005A0795 /* TaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Protocols/TaskToken.swift"; sourceTree = "<group>"; };
 		F36ADB0B22FCC1720028DEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trips.storyboard; sourceTree = "<group>"; };
+		F36C60812302D84800705F7B /* UIViewController+Computeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Computeds.swift"; sourceTree = "<group>"; };
+		F36C60822302D84800705F7B /* UIViewController+DisplayAlertMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlertMessage.swift"; sourceTree = "<group>"; };
+		F36C60832302D84800705F7B /* UIViewController+DisplayPromptMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayPromptMessage.swift"; sourceTree = "<group>"; };
+		F36C60842302D84800705F7B /* UIViewController+AddAndRemoveChild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddAndRemoveChild.swift"; sourceTree = "<group>"; };
+		F36C60852302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EdgeInsetsFromKeyboardChange.swift"; sourceTree = "<group>"; };
 		F374B77F22F6FA87006A712B /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
 		F374B78022F6FA88006A712B /* AddTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTrip.storyboard; sourceTree = "<group>"; };
 		F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -216,6 +226,18 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		F36C60802302D71600705F7B /* UIViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F36C60842302D84800705F7B /* UIViewController+AddAndRemoveChild.swift */,
+				F36C60812302D84800705F7B /* UIViewController+Computeds.swift */,
+				F36C60822302D84800705F7B /* UIViewController+DisplayAlertMessage.swift */,
+				F36C60832302D84800705F7B /* UIViewController+DisplayPromptMessage.swift */,
+				F36C60852302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift */,
+			);
+			path = UIViewController;
+			sourceTree = "<group>";
+		};
 		F374B77C22F6FA06006A712B /* Add Trip */ = {
 			isa = PBXGroup;
 			children = (
@@ -281,6 +303,7 @@
 		F38A01CC22D1CE6F00D8C5F3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F36C60802302D71600705F7B /* UIViewController */,
 				F3FB55C522DBB4C000BB31E7 /* UIView */,
 				F38A01CD22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift */,
 				F39C044D22DE05040053C76E /* UIFont+Custom.swift */,
@@ -603,11 +626,13 @@
 				F38A01D922D2BA3E00D8C5F3 /* TableViewDataSource.swift in Sources */,
 				F38A01B122D1AB9000D8C5F3 /* AppCoordinator.swift in Sources */,
 				F38A01CB22D1CDCE00D8C5F3 /* Endpoint.swift in Sources */,
+				F36C60892302D84900705F7B /* UIViewController+AddAndRemoveChild.swift in Sources */,
 				F38A01AF22D1AB1A00D8C5F3 /* SceneDelegate.swift in Sources */,
 				F38A01D522D2AA9C00D8C5F3 /* TripsListViewController.swift in Sources */,
 				F38A01CE22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift in Sources */,
 				F38EF84222B12C230031BE50 /* Trip.swift in Sources */,
 				F39C044E22DE05040053C76E /* UIFont+Custom.swift in Sources */,
+				F36C608A2302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift in Sources */,
 				F374B78122F6FA88006A712B /* AddTripViewController.swift in Sources */,
 				F38A01D322D2A5DC00D8C5F3 /* TripsCoordinator.swift in Sources */,
 				F38A022F22DA6B6F00D8C5F3 /* TripTableViewCell+ViewModel.swift in Sources */,
@@ -618,11 +643,14 @@
 				F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */,
 				F38A01BC22D1B19C00D8C5F3 /* NavigationCoordinator.swift in Sources */,
 				F38A01C822D1C0B300D8C5F3 /* DataLoader.swift in Sources */,
+				F36C60882302D84900705F7B /* UIViewController+DisplayPromptMessage.swift in Sources */,
 				F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */,
 				F38A01BE22D1B19C00D8C5F3 /* Storyboarded.swift in Sources */,
 				F360E95922FE9895005A0795 /* TaskToken.swift in Sources */,
 				F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */,
+				F36C60872302D84900705F7B /* UIViewController+DisplayAlertMessage.swift in Sources */,
 				F38EF83C22B128660031BE50 /* R.generated.swift in Sources */,
+				F36C60862302D84900705F7B /* UIViewController+Computeds.swift in Sources */,
 				F39C045122DE1D750053C76E /* Style.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
