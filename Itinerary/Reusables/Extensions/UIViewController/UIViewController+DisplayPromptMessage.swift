@@ -16,6 +16,7 @@ extension UIViewController {
         confirmButtonTitle: String = "OK",
         cancelButtonTitle: String = "Cancel",
         confirmationHandler: ((UIAlertAction) -> Void)? = nil,
+        confirmationStyle: UIAlertAction.Style = .default,
         cancelationHandler: ((UIAlertAction) -> Void)? = nil
     ) {
         let alertController = UIAlertController(
@@ -25,7 +26,7 @@ extension UIViewController {
         )
         
         alertController.addAction(
-            UIAlertAction(title: confirmButtonTitle, style: .default, handler: confirmationHandler)
+            UIAlertAction(title: confirmButtonTitle, style: confirmationStyle, handler: confirmationHandler)
         )
         
         alertController.addAction(

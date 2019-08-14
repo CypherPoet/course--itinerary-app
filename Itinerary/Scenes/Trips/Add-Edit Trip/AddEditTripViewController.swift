@@ -9,35 +9,49 @@
 import UIKit
 
 
-protocol AddTripViewControllerDelegate: class {
-    func viewControllerDidCancel(_ controller: AddTripViewController)
-    func viewController(_ controller: AddTripViewController, didAdd newTrip: Trip)
+protocol AddEditTripViewControllerDelegate: class {
+    func viewControllerDidCancel(_ controller: AddEditTripViewController)
+    func viewController(_ controller: AddEditTripViewController, didAdd newTrip: Trip)
 }
 
 
-class AddTripViewController: UITableViewController {
+class AddEditTripViewController: UITableViewController {
     @IBOutlet private var destinationTextField: UITextField!
     @IBOutlet private var destinationTextFieldLabel: UILabel!
     @IBOutlet private var doneButton: UIBarButtonItem!
-    @IBOutlet private var headlineLabel: UILabel!
+    @IBOutlet private var mainTitleLabel: UILabel!
     @IBOutlet var imagePickerButton: UIButton!
     
     
-    weak var delegate: AddTripViewControllerDelegate?
+    weak var delegate: AddEditTripViewControllerDelegate?
     var modelController: TripsModelController!
+    
+    var viewModel: ViewModel! {
+        didSet {
+            DispatchQueue.main.async {
+                guard self.isViewLoaded else { return }
+                self.render(with: self.viewModel)
+            }
+        }
+    }
 }
 
 
 // MARK: - Computeds
-extension AddTripViewController {
+extension AddEditTripViewController {
     var canUsePhotoLibrary: Bool { UIImagePickerController.isSourceTypeAvailable(.photoLibrary) }
     
-    var newTripFromChanges: Trip {
+    var tripFromFormData: Trip {
         guard let destination = destinationTextField.text else {
             preconditionFailure("No text value found in destination field")
         }
         
-        let imageData = imagePickerButton.imageView?.image?.jpegData(compressionQuality: 0.8)
+        let imageData: Data?
+        if imagePickerButton.imageView?.image?.isSymbolImage ?? false {
+            imageData = imagePickerButton.imageView?.image?.jpegData(compressionQuality: 0.8)
+        } else {
+            imageData = nil
+        }
         
         return Trip(
             title: destination,
@@ -59,14 +73,16 @@ extension AddTripViewController {
 
 
 // MARK: - Lifecycle
-extension AddTripViewController {
+extension AddEditTripViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         assert(modelController != nil, "No modelController was set")
+        assert(viewModel != nil, "No viewModel was set")
 
         setupUI()
+        render(with: viewModel)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
             self.destinationTextField.becomeFirstResponder()
@@ -77,7 +93,7 @@ extension AddTripViewController {
 
 
 // MARK: - Event Handling
-extension AddTripViewController {
+extension AddEditTripViewController {
     
     @IBAction func cancelButtonTapped() {
         delegate?.viewControllerDidCancel(self)
@@ -112,12 +128,12 @@ extension AddTripViewController {
 
 
 // MARK: - Private Helpers
-private extension AddTripViewController {
+private extension AddEditTripViewController {
     
     func setupUI() {
         Style.Label
             .xLargeBoldTitle(color: UIColor.Theme.accent1)
-            .apply(to: headlineLabel)
+            .apply(to: mainTitleLabel)
         
         Style.Label.formLabel.apply(to: destinationTextFieldLabel)
         Style.TextField.inset().apply(to: destinationTextField)
@@ -126,7 +142,7 @@ private extension AddTripViewController {
     
     
     func submitTripData() {
-        let newTrip = newTripFromChanges
+        let newTrip = tripFromFormData
         
         modelController.create(newTrip) { [weak self] _ in
             self?.delegate?.viewController(self!, didAdd: newTrip)
@@ -137,11 +153,19 @@ private extension AddTripViewController {
     func save(pickedImage: Data) {
 
     }
+    
+    
+    func render(with viewModel: ViewModel) {
+        mainTitleLabel.text = viewModel.mainTitleText
+        
+        destinationTextField.text = viewModel.tripToEdit?.title ?? ""
+        destinationTextFieldChanged()
+    }
 }
 
 
 // MARK: - UIImagePickerControllerDelegate
-extension AddTripViewController: UIImagePickerControllerDelegate {
+extension AddEditTripViewController: UIImagePickerControllerDelegate {
     
     func imagePickerController(
         _ picker: UIImagePickerController,
@@ -158,5 +182,5 @@ extension AddTripViewController: UIImagePickerControllerDelegate {
 }
 
 
-extension AddTripViewController: Storyboarded {}
-extension AddTripViewController: UINavigationControllerDelegate {}
+extension AddEditTripViewController: Storyboarded {}
+extension AddEditTripViewController: UINavigationControllerDelegate {}

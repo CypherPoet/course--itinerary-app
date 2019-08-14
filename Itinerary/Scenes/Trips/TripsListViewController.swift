@@ -11,6 +11,7 @@ import UIKit
 
 protocol TripsListViewControllerDelegate: class {
     func viewControllerDidSelectAddTrip(_ controller: TripsListViewController)
+    func viewController(_ controller: TripsListViewController, didSelectEditingFor trip: Trip)
 }
 
 
@@ -141,13 +142,41 @@ private extension TripsListViewController {
     }
     
     
-    func deleteTrip(at indexPath: IndexPath, then completionHandler: @escaping (Bool) -> Void) {
+    func editTrip(
+        at indexPath: IndexPath,
+        usingSwipeCompletionHandler completionHandler: @escaping (Bool) -> Void
+    ) {
+        guard let tripToEdit = dataSource.itemIdentifier(for: indexPath) else {
+            preconditionFailure("Unable to find trip to delete")
+        }
+        
+        completionHandler(true)
+        delegate?.viewController(self, didSelectEditingFor: tripToEdit)
+    }
+    
+    
+    func deleteTrip(
+        at indexPath: IndexPath,
+        usingSwipeCompletionHandler completionHandler: @escaping (Bool) -> Void
+    ) {
         guard let tripToDelete = dataSource.itemIdentifier(for: indexPath) else {
             preconditionFailure("Unable to find trip to delete")
         }
         
-        modelController.delete(tripToDelete)
-        completionHandler(true)
+        display(
+            promptMessage: "Deleting this trip is a permanant action.",
+            titled: "Are You Sure?",
+            confirmButtonTitle: "Delete",
+            cancelButtonTitle: "Cancel",
+            confirmationHandler: { [weak self] _ in
+                self?.modelController.delete(tripToDelete)
+                completionHandler(true)
+            },
+            confirmationStyle: .destructive,
+            cancelationHandler: { _ in
+                completionHandler(false)
+            }
+        )
     }
 }
 
@@ -157,13 +186,32 @@ extension TripsListViewController: UITableViewDelegate {
     
     func tableView(
         _ tableView: UITableView,
+        leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath
+    ) -> UISwipeActionsConfiguration? {
+        let editAction = UIContextualAction(
+            style: .normal,
+            title: nil,
+            handler: { [weak self] (_, _, completionHandler: @escaping (Bool) -> Void) in
+                self?.editTrip(at: indexPath, usingSwipeCompletionHandler: completionHandler)
+            }
+        )
+        
+        editAction.backgroundColor = UIColor.Theme.tint
+        editAction.image = UIImage(systemName: "pencil")
+        
+        return UISwipeActionsConfiguration(actions: [editAction])
+    }
+    
+    
+    func tableView(
+        _ tableView: UITableView,
         trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath
     ) -> UISwipeActionsConfiguration? {
         let deleteAction = UIContextualAction(
             style: .destructive,
             title: nil,
             handler: { [weak self] (_, _, completionHandler: @escaping (Bool) -> Void) in
-                self?.deleteTrip(at: indexPath, then: completionHandler)
+                self?.deleteTrip(at: indexPath, usingSwipeCompletionHandler: completionHandler)
             }
         )
         

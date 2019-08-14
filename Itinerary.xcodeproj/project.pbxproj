@@ -19,8 +19,8 @@
 		F36C60882302D84900705F7B /* UIViewController+DisplayPromptMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60832302D84800705F7B /* UIViewController+DisplayPromptMessage.swift */; };
 		F36C60892302D84900705F7B /* UIViewController+AddAndRemoveChild.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60842302D84800705F7B /* UIViewController+AddAndRemoveChild.swift */; };
 		F36C608A2302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60852302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift */; };
-		F374B78122F6FA88006A712B /* AddTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374B77F22F6FA87006A712B /* AddTripViewController.swift */; };
-		F374B78222F6FA88006A712B /* AddTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374B78022F6FA88006A712B /* AddTrip.storyboard */; };
+		F374B78122F6FA88006A712B /* AddEditTripViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F374B77F22F6FA87006A712B /* AddEditTripViewController.swift */; };
+		F374B78222F6FA88006A712B /* AddEditTrip.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F374B78022F6FA88006A712B /* AddEditTrip.storyboard */; };
 		F38A01AF22D1AB1A00D8C5F3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */; };
 		F38A01B122D1AB9000D8C5F3 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01B022D1AB9000D8C5F3 /* AppCoordinator.swift */; };
 		F38A01BB22D1B19C00D8C5F3 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F38A01B722D1B19B00D8C5F3 /* Coordinator.swift */; };
@@ -46,6 +46,7 @@
 		F39C045722DE8B080053C76E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39C045622DE8B080053C76E /* Colors.xcassets */; };
 		F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C045A22DE99510053C76E /* UIColor+Theme.swift */; };
 		F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */; };
+		F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */; };
 		F3FB55C722DBB4D900BB31E7 /* UIView+AddShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */; };
 		F3FB563422DBC8FC00BB31E7 /* Whitney-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FB562722DBC8FB00BB31E7 /* Whitney-Semibold.ttf */; };
 		F3FB563522DBC8FC00BB31E7 /* Whitney-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FB562822DBC8FB00BB31E7 /* Whitney-MediumItalic.ttf */; };
@@ -91,8 +92,8 @@
 		F36C60832302D84800705F7B /* UIViewController+DisplayPromptMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayPromptMessage.swift"; sourceTree = "<group>"; };
 		F36C60842302D84800705F7B /* UIViewController+AddAndRemoveChild.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+AddAndRemoveChild.swift"; sourceTree = "<group>"; };
 		F36C60852302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+EdgeInsetsFromKeyboardChange.swift"; sourceTree = "<group>"; };
-		F374B77F22F6FA87006A712B /* AddTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTripViewController.swift; sourceTree = "<group>"; };
-		F374B78022F6FA88006A712B /* AddTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddTrip.storyboard; sourceTree = "<group>"; };
+		F374B77F22F6FA87006A712B /* AddEditTripViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddEditTripViewController.swift; sourceTree = "<group>"; };
+		F374B78022F6FA88006A712B /* AddEditTrip.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AddEditTrip.storyboard; sourceTree = "<group>"; };
 		F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		F38A01B022D1AB9000D8C5F3 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		F38A01B722D1B19B00D8C5F3 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		F39C045622DE8B080053C76E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F39C045A22DE99510053C76E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Appearance.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Helpers/Appearance.swift"; sourceTree = "<group>"; };
+		F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AddEditTripViewController+ViewModel.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/AddEditTripViewController+ViewModel.swift"; sourceTree = "<group>"; };
 		F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddShadow.swift"; sourceTree = "<group>"; };
 		F3FB562722DBC8FB00BB31E7 /* Whitney-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Whitney-Semibold.ttf"; sourceTree = "<group>"; };
 		F3FB562822DBC8FB00BB31E7 /* Whitney-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Whitney-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -238,13 +240,14 @@
 			path = UIViewController;
 			sourceTree = "<group>";
 		};
-		F374B77C22F6FA06006A712B /* Add Trip */ = {
+		F374B77C22F6FA06006A712B /* Add-Edit Trip */ = {
 			isa = PBXGroup;
 			children = (
-				F374B78022F6FA88006A712B /* AddTrip.storyboard */,
-				F374B77F22F6FA87006A712B /* AddTripViewController.swift */,
+				F374B78022F6FA88006A712B /* AddEditTrip.storyboard */,
+				F374B77F22F6FA87006A712B /* AddEditTripViewController.swift */,
+				F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */,
 			);
-			path = "Add Trip";
+			path = "Add-Edit Trip";
 			sourceTree = "<group>";
 		};
 		F38A01B222D1ABEC00D8C5F3 /* Helpers */ = {
@@ -318,7 +321,7 @@
 				F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */,
 				F38A01D222D2A5DC00D8C5F3 /* TripsCoordinator.swift */,
 				F38A01D422D2AA9C00D8C5F3 /* TripsListViewController.swift */,
-				F374B77C22F6FA06006A712B /* Add Trip */,
+				F374B77C22F6FA06006A712B /* Add-Edit Trip */,
 				F38A01DF22D304DB00D8C5F3 /* Cell */,
 			);
 			path = Trips;
@@ -516,7 +519,7 @@
 				F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */,
 				F3FB563A22DBC8FC00BB31E7 /* Whitney-Medium.ttf in Resources */,
 				F39C045722DE8B080053C76E /* Colors.xcassets in Resources */,
-				F374B78222F6FA88006A712B /* AddTrip.storyboard in Resources */,
+				F374B78222F6FA88006A712B /* AddEditTrip.storyboard in Resources */,
 				F3FB566622DBC94600BB31E7 /* GothamPro-BlackItalic.ttf in Resources */,
 				F3FB563522DBC8FC00BB31E7 /* Whitney-MediumItalic.ttf in Resources */,
 				F3FB566B22DBC94600BB31E7 /* GothamProNarrow-Bold.ttf in Resources */,
@@ -633,7 +636,7 @@
 				F38EF84222B12C230031BE50 /* Trip.swift in Sources */,
 				F39C044E22DE05040053C76E /* UIFont+Custom.swift in Sources */,
 				F36C608A2302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift in Sources */,
-				F374B78122F6FA88006A712B /* AddTripViewController.swift in Sources */,
+				F374B78122F6FA88006A712B /* AddEditTripViewController.swift in Sources */,
 				F38A01D322D2A5DC00D8C5F3 /* TripsCoordinator.swift in Sources */,
 				F38A022F22DA6B6F00D8C5F3 /* TripTableViewCell+ViewModel.swift in Sources */,
 				F38A01C122D1B64400D8C5F3 /* TripsModelController.swift in Sources */,
@@ -642,6 +645,7 @@
 				F38A01DD22D304B200D8C5F3 /* TripTableViewCell.swift in Sources */,
 				F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */,
 				F38A01BC22D1B19C00D8C5F3 /* NavigationCoordinator.swift in Sources */,
+				F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */,
 				F38A01C822D1C0B300D8C5F3 /* DataLoader.swift in Sources */,
 				F36C60882302D84900705F7B /* UIViewController+DisplayPromptMessage.swift in Sources */,
 				F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */,

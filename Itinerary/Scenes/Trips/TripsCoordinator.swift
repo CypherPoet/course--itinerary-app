@@ -38,35 +38,44 @@ extension TripsCoordinator: Coordinator {
 }
 
 
-// MARK: TripsListViewControllerDelegate
-extension TripsCoordinator: TripsListViewControllerDelegate {
-
-    func viewControllerDidSelectAddTrip(_ controller: TripsListViewController) {
-        let addTripVC = AddTripViewController.instantiateFromStoryboard(
-            named: R.storyboard.addTrip.name
+private extension TripsCoordinator {
+    func presentAddEditTripVC(editing tripToEdit: Trip? = nil) {
+        let addEditTripVC = AddEditTripViewController.instantiateFromStoryboard(
+            named: R.storyboard.addEditTrip.name
         )
         
-        addTripVC.delegate = self
-        addTripVC.modelController = tripsModelController
+        addEditTripVC.delegate = self
+        addEditTripVC.modelController = tripsModelController
+        addEditTripVC.viewModel = .init(tripToEdit: tripToEdit)
         
-        let childNavController = UINavigationController(rootViewController: addTripVC)
-        childNavController.modalTransitionStyle = .coverVertical
-        childNavController.modalPresentationStyle = .pageSheet
-        
+        let childNavController = UINavigationController(rootViewController: addEditTripVC)
         navController.present(childNavController, animated: true)
     }
 }
 
 
-// MARK: AddTripViewControllerDelegate
-extension TripsCoordinator: AddTripViewControllerDelegate {
+// MARK: TripsListViewControllerDelegate
+extension TripsCoordinator: TripsListViewControllerDelegate {
     
-    func viewControllerDidCancel(_ controller: AddTripViewController) {
+    func viewController(_ controller: TripsListViewController, didSelectEditingFor trip: Trip) {
+        presentAddEditTripVC(editing: trip)
+    }
+    
+    func viewControllerDidSelectAddTrip(_ controller: TripsListViewController) {
+        presentAddEditTripVC()
+    }
+}
+
+
+// MARK: AddTripViewControllerDelegate
+extension TripsCoordinator: AddEditTripViewControllerDelegate {
+    
+    func viewControllerDidCancel(_ controller: AddEditTripViewController) {
         navController.dismiss(animated: true)
     }
     
     
-    func viewController(_ controller: AddTripViewController, didAdd newTrip: Trip) {
+    func viewController(_ controller: AddEditTripViewController, didAdd newTrip: Trip) {
         navController.dismiss(animated: true) 
     }
 }
