@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		605BC08477858B05351A13B0 /* Pods_Itinerary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6863F0A5818FA1756477FE85 /* Pods_Itinerary.framework */; };
+		F30C7404230445580091C07D /* TripsListHelpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F30C7403230445580091C07D /* TripsListHelpViewController.swift */; };
+		F30C74072304458A0091C07D /* TripsListHelp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F30C74052304458A0091C07D /* TripsListHelp.storyboard */; };
 		F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31624A1229949AF0059E49C /* AppDelegate.swift */; };
 		F31624A9229949B00059E49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31624A8229949B00059E49C /* Assets.xcassets */; };
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
@@ -47,6 +49,7 @@
 		F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C045A22DE99510053C76E /* UIColor+Theme.swift */; };
 		F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */; };
 		F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */; };
+		F3CDD188230442490025B8D5 /* FilledActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD187230442490025B8D5 /* FilledActionButton.swift */; };
 		F3FB55C722DBB4D900BB31E7 /* UIView+AddShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */; };
 		F3FB563422DBC8FC00BB31E7 /* Whitney-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FB562722DBC8FB00BB31E7 /* Whitney-Semibold.ttf */; };
 		F3FB563522DBC8FC00BB31E7 /* Whitney-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FB562822DBC8FB00BB31E7 /* Whitney-MediumItalic.ttf */; };
@@ -79,6 +82,8 @@
 		0E74253DBBBF7B276CFA529C /* Pods-Itinerary.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerary.debug.xcconfig"; path = "Target Support Files/Pods-Itinerary/Pods-Itinerary.debug.xcconfig"; sourceTree = "<group>"; };
 		277ADEE16EF203DE4431A03A /* Pods-Itinerary.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Itinerary.release.xcconfig"; path = "Target Support Files/Pods-Itinerary/Pods-Itinerary.release.xcconfig"; sourceTree = "<group>"; };
 		6863F0A5818FA1756477FE85 /* Pods_Itinerary.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Itinerary.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F30C7403230445580091C07D /* TripsListHelpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripsListHelpViewController.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/TripsListHelpViewController.swift"; sourceTree = "<group>"; };
+		F30C74062304458A0091C07D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Base.lproj/TripsListHelp.storyboard"; sourceTree = "<group>"; };
 		F316249E229949AF0059E49C /* Itinerary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Itinerary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F31624A1229949AF0059E49C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F31624A8229949B00059E49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -120,6 +125,7 @@
 		F39C045A22DE99510053C76E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Appearance.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Helpers/Appearance.swift"; sourceTree = "<group>"; };
 		F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AddEditTripViewController+ViewModel.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/AddEditTripViewController+ViewModel.swift"; sourceTree = "<group>"; };
+		F3CDD187230442490025B8D5 /* FilledActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilledActionButton.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/FilledActionButton.swift"; sourceTree = "<group>"; };
 		F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddShadow.swift"; sourceTree = "<group>"; };
 		F3FB562722DBC8FB00BB31E7 /* Whitney-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Whitney-Semibold.ttf"; sourceTree = "<group>"; };
 		F3FB562822DBC8FB00BB31E7 /* Whitney-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Whitney-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -216,6 +222,7 @@
 		F350F9B022FB1352002A1F23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F3CDD187230442490025B8D5 /* FilledActionButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -318,11 +325,13 @@
 		F38A01D122D29E7700D8C5F3 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
+				F30C74052304458A0091C07D /* TripsListHelp.storyboard */,
 				F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */,
 				F38A01D222D2A5DC00D8C5F3 /* TripsCoordinator.swift */,
 				F38A01D422D2AA9C00D8C5F3 /* TripsListViewController.swift */,
 				F374B77C22F6FA06006A712B /* Add-Edit Trip */,
 				F38A01DF22D304DB00D8C5F3 /* Cell */,
+				F30C7403230445580091C07D /* TripsListHelpViewController.swift */,
 			);
 			path = Trips;
 			sourceTree = "<group>";
@@ -527,6 +536,7 @@
 				F3FB563822DBC8FC00BB31E7 /* Whitney-Black.ttf in Resources */,
 				F3FB566822DBC94600BB31E7 /* GothamPro-Bold.ttf in Resources */,
 				F3FB563C22DBC8FC00BB31E7 /* Whitney-BookItalic.ttf in Resources */,
+				F30C74072304458A0091C07D /* TripsListHelp.storyboard in Resources */,
 				F3FB563422DBC8FC00BB31E7 /* Whitney-Semibold.ttf in Resources */,
 				F3FB563F22DBC8FC00BB31E7 /* Whitney-BlackItalic.ttf in Resources */,
 				F38A01DE22D304B200D8C5F3 /* TripTableViewCell.xib in Resources */,
@@ -633,6 +643,7 @@
 				F38A01AF22D1AB1A00D8C5F3 /* SceneDelegate.swift in Sources */,
 				F38A01D522D2AA9C00D8C5F3 /* TripsListViewController.swift in Sources */,
 				F38A01CE22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift in Sources */,
+				F30C7404230445580091C07D /* TripsListHelpViewController.swift in Sources */,
 				F38EF84222B12C230031BE50 /* Trip.swift in Sources */,
 				F39C044E22DE05040053C76E /* UIFont+Custom.swift in Sources */,
 				F36C608A2302D84900705F7B /* UIViewController+EdgeInsetsFromKeyboardChange.swift in Sources */,
@@ -652,6 +663,7 @@
 				F38A01BE22D1B19C00D8C5F3 /* Storyboarded.swift in Sources */,
 				F360E95922FE9895005A0795 /* TaskToken.swift in Sources */,
 				F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */,
+				F3CDD188230442490025B8D5 /* FilledActionButton.swift in Sources */,
 				F36C60872302D84900705F7B /* UIViewController+DisplayAlertMessage.swift in Sources */,
 				F38EF83C22B128660031BE50 /* R.generated.swift in Sources */,
 				F36C60862302D84900705F7B /* UIViewController+Computeds.swift in Sources */,
@@ -662,6 +674,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
+		F30C74052304458A0091C07D /* TripsListHelp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F30C74062304458A0091C07D /* Base */,
+			);
+			name = TripsListHelp.storyboard;
+			sourceTree = "<group>";
+		};
 		F31624AA229949B00059E49C /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

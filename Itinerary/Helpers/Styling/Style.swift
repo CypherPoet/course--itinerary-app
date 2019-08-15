@@ -86,10 +86,12 @@ enum Style {
     
     enum Button {
         static let filledAction = UIViewStyle<UIButton> { button in
-            button.layer.cornerRadius = Appearance.Constants.buttonCornerRadius
+            button.layer.cornerRadius = Appearance.Constants.wideButtonCornerRadius
             button.clipsToBounds = true
             button.backgroundColor = UIColor.Theme.tint
             button.tintColor = UIColor.Theme.accent1
+            button.titleLabel?.font = UIFontMetrics(forTextStyle: .body)
+                .scaledFont(for: UIFont.Custom.bold.withSize(18))
         }
         
         

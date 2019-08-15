@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14845" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="dark"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14799.2"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Whitney-Bold.ttf">
+            <string>Whitney-Bold</string>
+        </array>
+    </customFonts>
+    <scenes>
+        <!--Trips List Help View Controller-->
+        <scene sceneID="yem-eB-VLG">
+            <objects>
+                <viewController storyboardIdentifier="TripsListHelpViewController" id="u2g-Fb-Lcz" customClass="TripsListHelpViewController" customModule="Itinerary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="bBu-kJ-bGT">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="g8S-Vr-wri"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iDl-iw-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <visualEffectView opaque="NO" contentMode="scaleToFill" id="jMq-Re-8Wz">
+                    <rect key="frame" x="0.0" y="0.0" width="404" height="505"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="LM3-Ee-SPD">
+                        <rect key="frame" x="0.0" y="0.0" width="404" height="505"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mve-rc-WeD">
+                                <rect key="frame" x="12" y="100" width="380" height="353"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="4aj-8m-E57">
+                                        <rect key="frame" x="0.0" y="0.0" width="380" height="293"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Swipe rows for more features!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPh-mW-G3J">
+                                                <rect key="frame" x="48.5" y="0.0" width="283.5" height="29"/>
+                                                <fontDescription key="fontDescription" name="Whitney-Bold" family="Whitney" pointSize="22"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe-to-edit" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-G1-8iM">
+                                                <rect key="frame" x="0.0" y="64" width="380" height="97"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="322" id="ChA-7Y-srR"/>
+                                                    <constraint firstAttribute="height" constant="112" id="rEs-kH-Vk2"/>
+                                                </constraints>
+                                            </imageView>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe-to-delete" translatesAutoresizingMaskIntoConstraints="NO" id="dMo-wK-tDp">
+                                                <rect key="frame" x="0.0" y="196" width="380" height="97.000000000000114"/>
+                                            </imageView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="dMo-wK-tDp" firstAttribute="height" secondItem="vbi-G1-8iM" secondAttribute="height" id="6OG-TC-QKb"/>
+                                            <constraint firstItem="dMo-wK-tDp" firstAttribute="width" secondItem="vbi-G1-8iM" secondAttribute="width" id="6vn-L2-gaT"/>
+                                        </constraints>
+                                    </stackView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OW-id-1Rk" customClass="FilledActionButton" customModule="Itinerary" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="301" width="380" height="52"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="52" id="CiZ-bJ-HNx"/>
+                                            <constraint firstAttribute="width" constant="260" id="dfV-6f-WB7"/>
+                                        </constraints>
+                                        <state key="normal" title="👍 Got It!"/>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="mve-rc-WeD" secondAttribute="trailing" constant="12" id="ApD-YQ-dKm"/>
+                            <constraint firstItem="mve-rc-WeD" firstAttribute="top" secondItem="LM3-Ee-SPD" secondAttribute="top" constant="100" id="SaJ-xy-nNW"/>
+                            <constraint firstItem="mve-rc-WeD" firstAttribute="top" secondItem="LM3-Ee-SPD" secondAttribute="top" constant="22" id="TFe-8O-gQD"/>
+                            <constraint firstItem="mve-rc-WeD" firstAttribute="leading" secondItem="LM3-Ee-SPD" secondAttribute="leading" constant="12" id="jlJ-8G-5Ij"/>
+                            <constraint firstAttribute="bottom" secondItem="mve-rc-WeD" secondAttribute="bottom" constant="52" id="pXl-FF-PDv"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="TFe-8O-gQD"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="SaJ-xy-nNW"/>
+                                <include reference="TFe-8O-gQD"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <blurEffect style="regular"/>
+                </visualEffectView>
+            </objects>
+            <point key="canvasLocation" x="1086" y="-34"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="swipe-to-delete" width="830" height="506"/>
+        <image name="swipe-to-edit" width="832" height="540"/>
+    </resources>
+</document>

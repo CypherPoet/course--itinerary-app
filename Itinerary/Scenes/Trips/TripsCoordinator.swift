@@ -26,19 +26,30 @@ extension TripsCoordinator: Coordinator {
         let tripsListVC = TripsListViewController.instantiateFromStoryboard(
             named: R.storyboard.trips.name
         )
-       
+        
         tripsListVC.delegate = self
         tripsListVC.navigationItem.title = "My Trips"
         tripsListVC.modelController = tripsModelController
+
         
         navController.navigationBar.prefersLargeTitles = true
-        
         navController.setViewControllers([tripsListVC], animated: true)
+        
+        let helpViewController = TripsListHelpViewController.instantiateFromStoryboard(
+            named: R.storyboard.tripsListHelp.name
+        )
+        
+        helpViewController.modalPresentationStyle = .fullScreen
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.13) {
+            self.navController.present(helpViewController, animated: true)
+        }
     }
 }
 
-
+// MARK: - Private Helpers
 private extension TripsCoordinator {
+    
     func presentAddEditTripVC(editing tripToEdit: Trip? = nil) {
         let addEditTripVC = AddEditTripViewController.instantiateFromStoryboard(
             named: R.storyboard.addEditTrip.name
