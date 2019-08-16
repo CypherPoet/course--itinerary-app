@@ -42,20 +42,20 @@
                                         <rect key="frame" x="17" y="0.0" width="322" height="293"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Swipe rows for more features!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPh-mW-G3J">
-                                                <rect key="frame" x="19.5" y="0.0" width="283.5" height="29"/>
+                                                <rect key="frame" x="14" y="0.0" width="294" height="26"/>
                                                 <fontDescription key="fontDescription" name="Whitney-Bold" family="Whitney" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe-to-edit" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-G1-8iM">
-                                                <rect key="frame" x="0.0" y="64" width="322" height="97"/>
+                                                <rect key="frame" x="0.0" y="61" width="322" height="98.5"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="322" id="ChA-7Y-srR"/>
                                                     <constraint firstAttribute="height" constant="112" id="rEs-kH-Vk2"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe-to-delete" translatesAutoresizingMaskIntoConstraints="NO" id="dMo-wK-tDp">
-                                                <rect key="frame" x="0.0" y="196" width="322" height="97.000000000000114"/>
+                                                <rect key="frame" x="0.0" y="194.5" width="322" height="98.5"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>

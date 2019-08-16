@@ -171,10 +171,18 @@ extension AddEditTripViewController: UIImagePickerControllerDelegate {
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey: Any]
     ) {
-        if let image = info[.editedImage] as? UIImage {
-            DispatchQueue.main.async {
-                self.imagePickerButton.setImage(image, for: .normal)
-            }
+        let imageToSave: UIImage
+        
+        if let editedImage = info[.editedImage] as? UIImage {
+            imageToSave = editedImage
+        } else if let originalImage = info[.originalImage] as? UIImage {
+            imageToSave = originalImage
+        } else {
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.imagePickerButton.setImage(imageToSave, for: .normal)
         }
         
         dismiss(animated: true)
