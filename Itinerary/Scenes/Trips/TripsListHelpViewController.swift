@@ -15,20 +15,23 @@ protocol TripsListHelpViewControllerDelegate: class {
 
 
 class TripsListHelpViewController: UIViewController {
-    @IBOutlet var helpView: UIVisualEffectView!
+    @IBOutlet var closeButton: FilledActionButton!
+    @IBOutlet var helpViewOverlay: UIVisualEffectView!
     
-    weak var delegate: TripsListViewControllerDelegate?
+    weak var delegate: TripsListHelpViewControllerDelegate?
     
     
     override func loadView() {
         super.loadView()
             
-        view = helpView
+        view = helpViewOverlay
+        
+        closeButton.addTarget(self, action: #selector(TripsListHelpViewController.closeButtonTapped(_:)), for: .touchUpInside)
     }
     
     
-    @IBAction func closeButtonTapped(_ button: UIButton) {
-        
+    @objc func closeButtonTapped(_ button: UIButton) {
+        delegate?.viewControllerDidTapCloseButton(self)
     }
 }
 

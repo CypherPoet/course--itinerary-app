@@ -15,6 +15,9 @@
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
 		F360E95722FE9873005A0795 /* DataTaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95622FE9873005A0795 /* DataTaskToken.swift */; };
 		F360E95922FE9895005A0795 /* TaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95822FE9895005A0795 /* TaskToken.swift */; };
+		F366BD112306A7700019E76A /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD102306A7700019E76A /* Appearance.swift */; };
+		F366BD132306A7D40019E76A /* AppUserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD122306A7D40019E76A /* AppUserDefaults.swift */; };
+		F366BD152306B2A20019E76A /* AppStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD142306B2A20019E76A /* AppStateController.swift */; };
 		F36ADB0A22FCC1720028DEA3 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */; };
 		F36C60862302D84900705F7B /* UIViewController+Computeds.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60812302D84800705F7B /* UIViewController+Computeds.swift */; };
 		F36C60872302D84900705F7B /* UIViewController+DisplayAlertMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36C60822302D84800705F7B /* UIViewController+DisplayAlertMessage.swift */; };
@@ -47,7 +50,6 @@
 		F39C045122DE1D750053C76E /* Style.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C045022DE1D740053C76E /* Style.swift */; };
 		F39C045722DE8B080053C76E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F39C045622DE8B080053C76E /* Colors.xcassets */; };
 		F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C045A22DE99510053C76E /* UIColor+Theme.swift */; };
-		F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */; };
 		F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */; };
 		F3CDD188230442490025B8D5 /* FilledActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD187230442490025B8D5 /* FilledActionButton.swift */; };
 		F3FB55C722DBB4D900BB31E7 /* UIView+AddShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */; };
@@ -91,6 +93,9 @@
 		F31624AD229949B00059E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F360E95622FE9873005A0795 /* DataTaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Networking/DataTaskToken.swift"; sourceTree = "<group>"; };
 		F360E95822FE9895005A0795 /* TaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Protocols/TaskToken.swift"; sourceTree = "<group>"; };
+		F366BD102306A7700019E76A /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
+		F366BD122306A7D40019E76A /* AppUserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppUserDefaults.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Helpers/AppUserDefaults.swift"; sourceTree = "<group>"; };
+		F366BD142306B2A20019E76A /* AppStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppStateController.swift; path = "../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/AppStateController.swift"; sourceTree = "<group>"; };
 		F36ADB0B22FCC1720028DEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trips.storyboard; sourceTree = "<group>"; };
 		F36C60812302D84800705F7B /* UIViewController+Computeds.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Computeds.swift"; sourceTree = "<group>"; };
 		F36C60822302D84800705F7B /* UIViewController+DisplayAlertMessage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+DisplayAlertMessage.swift"; sourceTree = "<group>"; };
@@ -123,7 +128,6 @@
 		F39C045022DE1D740053C76E /* Style.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Style.swift; sourceTree = "<group>"; };
 		F39C045622DE8B080053C76E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		F39C045A22DE99510053C76E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
-		F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Appearance.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Helpers/Appearance.swift"; sourceTree = "<group>"; };
 		F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AddEditTripViewController+ViewModel.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/AddEditTripViewController+ViewModel.swift"; sourceTree = "<group>"; };
 		F3CDD187230442490025B8D5 /* FilledActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilledActionButton.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/FilledActionButton.swift"; sourceTree = "<group>"; };
 		F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddShadow.swift"; sourceTree = "<group>"; };
@@ -211,7 +215,6 @@
 				F31624A1229949AF0059E49C /* AppDelegate.swift */,
 				F38A01AE22D1AB1A00D8C5F3 /* SceneDelegate.swift */,
 				F38EF83F22B1295B0031BE50 /* Content */,
-				F39C044A22DD50B00053C76E /* Helpers */,
 				F38EF83E22B129500031BE50 /* Models */,
 				F38A01B322D1ABF500D8C5F3 /* Reusables */,
 				F38EF84022B129660031BE50 /* Scenes */,
@@ -262,7 +265,8 @@
 			children = (
 				F38A01C722D1C0B300D8C5F3 /* DataLoader.swift */,
 				F38A01D822D2BA3E00D8C5F3 /* TableViewDataSource.swift */,
-				F3B2BD5622F6B2A60009D8B1 /* Appearance.swift */,
+				F39C044F22DE1C640053C76E /* Styling */,
+				F366BD122306A7D40019E76A /* AppUserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -276,6 +280,7 @@
 				F38A01C922D1CDC000D8C5F3 /* Constants */,
 				F38A01B222D1ABEC00D8C5F3 /* Helpers */,
 				F38A01B422D1B14200D8C5F3 /* Protocols */,
+				F366BD142306B2A20019E76A /* AppStateController.swift */,
 			);
 			path = Reusables;
 			sourceTree = "<group>";
@@ -325,13 +330,13 @@
 		F38A01D122D29E7700D8C5F3 /* Trips */ = {
 			isa = PBXGroup;
 			children = (
-				F30C74052304458A0091C07D /* TripsListHelp.storyboard */,
-				F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */,
 				F38A01D222D2A5DC00D8C5F3 /* TripsCoordinator.swift */,
+				F30C7403230445580091C07D /* TripsListHelpViewController.swift */,
 				F38A01D422D2AA9C00D8C5F3 /* TripsListViewController.swift */,
 				F374B77C22F6FA06006A712B /* Add-Edit Trip */,
 				F38A01DF22D304DB00D8C5F3 /* Cell */,
-				F30C7403230445580091C07D /* TripsListHelpViewController.swift */,
+				F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */,
+				F30C74052304458A0091C07D /* TripsListHelp.storyboard */,
 			);
 			path = Trips;
 			sourceTree = "<group>";
@@ -373,17 +378,10 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		F39C044A22DD50B00053C76E /* Helpers */ = {
-			isa = PBXGroup;
-			children = (
-				F39C044F22DE1C640053C76E /* Styling */,
-			);
-			path = Helpers;
-			sourceTree = "<group>";
-		};
 		F39C044F22DE1C640053C76E /* Styling */ = {
 			isa = PBXGroup;
 			children = (
+				F366BD102306A7700019E76A /* Appearance.swift */,
 				F39C045022DE1D740053C76E /* Style.swift */,
 			);
 			path = Styling;
@@ -652,6 +650,8 @@
 				F38A022F22DA6B6F00D8C5F3 /* TripTableViewCell+ViewModel.swift in Sources */,
 				F38A01C122D1B64400D8C5F3 /* TripsModelController.swift in Sources */,
 				F3FB55C722DBB4D900BB31E7 /* UIView+AddShadow.swift in Sources */,
+				F366BD132306A7D40019E76A /* AppUserDefaults.swift in Sources */,
+				F366BD112306A7700019E76A /* Appearance.swift in Sources */,
 				F38A01C622D1BAC300D8C5F3 /* Identity.swift in Sources */,
 				F38A01DD22D304B200D8C5F3 /* TripTableViewCell.swift in Sources */,
 				F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */,
@@ -659,9 +659,9 @@
 				F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */,
 				F38A01C822D1C0B300D8C5F3 /* DataLoader.swift in Sources */,
 				F36C60882302D84900705F7B /* UIViewController+DisplayPromptMessage.swift in Sources */,
-				F3B2BD5722F6B2A60009D8B1 /* Appearance.swift in Sources */,
 				F38A01BE22D1B19C00D8C5F3 /* Storyboarded.swift in Sources */,
 				F360E95922FE9895005A0795 /* TaskToken.swift in Sources */,
+				F366BD152306B2A20019E76A /* AppStateController.swift in Sources */,
 				F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */,
 				F3CDD188230442490025B8D5 /* FilledActionButton.swift in Sources */,
 				F36C60872302D84900705F7B /* UIViewController+DisplayAlertMessage.swift in Sources */,

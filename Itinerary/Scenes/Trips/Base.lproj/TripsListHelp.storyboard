@@ -22,6 +22,10 @@
                         <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="g8S-Vr-wri"/>
                     </view>
+                    <connections>
+                        <outlet property="closeButton" destination="4OW-id-1Rk" id="LSF-RP-OOM"/>
+                        <outlet property="helpViewOverlay" destination="jMq-Re-8Wz" id="cg0-ME-zrd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iDl-iw-UV8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <visualEffectView opaque="NO" contentMode="scaleToFill" id="jMq-Re-8Wz">
@@ -31,27 +35,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="404" height="505"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mve-rc-WeD">
-                                <rect key="frame" x="12" y="100" width="380" height="353"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalCentering" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mve-rc-WeD">
+                                <rect key="frame" x="24" y="100" width="356" height="353"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="35" translatesAutoresizingMaskIntoConstraints="NO" id="4aj-8m-E57">
-                                        <rect key="frame" x="0.0" y="0.0" width="380" height="293"/>
+                                        <rect key="frame" x="17" y="0.0" width="322" height="293"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Swipe rows for more features!" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPh-mW-G3J">
-                                                <rect key="frame" x="48.5" y="0.0" width="283.5" height="29"/>
+                                                <rect key="frame" x="19.5" y="0.0" width="283.5" height="29"/>
                                                 <fontDescription key="fontDescription" name="Whitney-Bold" family="Whitney" pointSize="22"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe-to-edit" translatesAutoresizingMaskIntoConstraints="NO" id="vbi-G1-8iM">
-                                                <rect key="frame" x="0.0" y="64" width="380" height="97"/>
+                                                <rect key="frame" x="0.0" y="64" width="322" height="97"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="322" id="ChA-7Y-srR"/>
                                                     <constraint firstAttribute="height" constant="112" id="rEs-kH-Vk2"/>
                                                 </constraints>
                                             </imageView>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="swipe-to-delete" translatesAutoresizingMaskIntoConstraints="NO" id="dMo-wK-tDp">
-                                                <rect key="frame" x="0.0" y="196" width="380" height="97.000000000000114"/>
+                                                <rect key="frame" x="0.0" y="196" width="322" height="97.000000000000114"/>
                                             </imageView>
                                         </subviews>
                                         <constraints>
@@ -60,21 +64,24 @@
                                         </constraints>
                                     </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4OW-id-1Rk" customClass="FilledActionButton" customModule="Itinerary" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="301" width="380" height="52"/>
+                                        <rect key="frame" x="10" y="301" width="336" height="52"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="52" id="CiZ-bJ-HNx"/>
-                                            <constraint firstAttribute="width" constant="260" id="dfV-6f-WB7"/>
                                         </constraints>
                                         <state key="normal" title="👍 Got It!"/>
                                     </button>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="4OW-id-1Rk" secondAttribute="trailing" constant="10" id="ENV-xe-Zdc"/>
+                                    <constraint firstItem="4OW-id-1Rk" firstAttribute="leading" secondItem="mve-rc-WeD" secondAttribute="leading" constant="10" id="qKM-Mc-J3e"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="mve-rc-WeD" secondAttribute="trailing" constant="12" id="ApD-YQ-dKm"/>
+                            <constraint firstAttribute="trailing" secondItem="mve-rc-WeD" secondAttribute="trailing" constant="24" id="ApD-YQ-dKm"/>
                             <constraint firstItem="mve-rc-WeD" firstAttribute="top" secondItem="LM3-Ee-SPD" secondAttribute="top" constant="100" id="SaJ-xy-nNW"/>
                             <constraint firstItem="mve-rc-WeD" firstAttribute="top" secondItem="LM3-Ee-SPD" secondAttribute="top" constant="22" id="TFe-8O-gQD"/>
-                            <constraint firstItem="mve-rc-WeD" firstAttribute="leading" secondItem="LM3-Ee-SPD" secondAttribute="leading" constant="12" id="jlJ-8G-5Ij"/>
+                            <constraint firstItem="mve-rc-WeD" firstAttribute="leading" secondItem="LM3-Ee-SPD" secondAttribute="leading" constant="24" id="jlJ-8G-5Ij"/>
                             <constraint firstAttribute="bottom" secondItem="mve-rc-WeD" secondAttribute="bottom" constant="52" id="pXl-FF-PDv"/>
                         </constraints>
                         <variation key="default">

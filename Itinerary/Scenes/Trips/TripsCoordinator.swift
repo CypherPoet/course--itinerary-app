@@ -35,14 +35,12 @@ extension TripsCoordinator: Coordinator {
         navController.navigationBar.prefersLargeTitles = true
         navController.setViewControllers([tripsListVC], animated: true)
         
-        let helpViewController = TripsListHelpViewController.instantiateFromStoryboard(
-            named: R.storyboard.tripsListHelp.name
-        )
-        
-        helpViewController.modalPresentationStyle = .fullScreen
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.13) {
-            self.navController.present(helpViewController, animated: true)
+        if AppUserDefaults.isFirstRunOfApp.get(defaultValue: true) {
+           AppUserDefaults.isFirstRunOfApp.set(false)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.23) {
+                self.showHelpViewOverlay()
+            }
         }
     }
 }
@@ -61,6 +59,18 @@ private extension TripsCoordinator {
         
         let childNavController = UINavigationController(rootViewController: addEditTripVC)
         navController.present(childNavController, animated: true)
+    }
+    
+    
+    func showHelpViewOverlay() {
+        let helpViewController = TripsListHelpViewController.instantiateFromStoryboard(
+            named: R.storyboard.tripsListHelp.name
+        )
+        
+        helpViewController.delegate = self
+        helpViewController.modalPresentationStyle = .fullScreen
+        
+        navController.present(helpViewController, animated: true)
     }
 }
 
@@ -88,5 +98,14 @@ extension TripsCoordinator: AddEditTripViewControllerDelegate {
     
     func viewController(_ controller: AddEditTripViewController, didAdd newTrip: Trip) {
         navController.dismiss(animated: true) 
+    }
+}
+
+
+// MARK: - TripsListHelpViewControllerDelegate
+extension TripsCoordinator: TripsListHelpViewControllerDelegate {
+
+    func viewControllerDidTapCloseButton(_ controller: TripsListHelpViewController) {
+        navController.dismiss(animated: true)
     }
 }
