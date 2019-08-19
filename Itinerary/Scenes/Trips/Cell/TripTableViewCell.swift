@@ -78,10 +78,8 @@ private extension TripTableViewCell {
             })
             .apply(to: titleLabel)
         
-        Style.Label.subheadline
+        Style.Label.subheadline(color: UIColor.Theme.accent2)
             .withAdjustment({
-                $0.textColor = UIColor.Theme.accent2
-        
                 $0.addShadow(
                     opacity: 0.31,
                     radius: 6,

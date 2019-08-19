@@ -61,6 +61,7 @@ enum Style {
             }
         }
         
+        
         static func xLargeBoldTitle(color: UIColor = .label) -> UIViewStyle<UILabel> {
             UIViewStyle<UILabel> { label in
                 label.font = UIFontMetrics(forTextStyle: .largeTitle)
@@ -70,16 +71,48 @@ enum Style {
         }
         
         
-        static let subheadline = UIViewStyle<UILabel> { label in
-            label.font = UIFontMetrics(forTextStyle: .subheadline)
-                .scaledFont(for: UIFont.Custom.light.withSize(14))
+        static func headline(color: UIColor = .label) -> UIViewStyle<UILabel> {
+            UIViewStyle<UILabel> { label in
+                label.font = UIFontMetrics(forTextStyle: .headline)
+                    .scaledFont(for: UIFont.Custom.semibold.withSize(17))
+                label.textColor = color
+            }
         }
         
         
-        static let formLabel = UIViewStyle<UILabel> { label in
-            label.font = UIFontMetrics(forTextStyle: .subheadline)
-                .scaledFont(for: UIFont.Custom.bold.withSize(14))
-            label.textColor = UIColor.label
+        static func subheadline(color: UIColor = .label) -> UIViewStyle<UILabel> {
+            UIViewStyle<UILabel> { label in
+                label.font = UIFontMetrics(forTextStyle: .subheadline)
+                    .scaledFont(for: UIFont.Custom.light.withSize(14))
+                label.textColor = color
+            }
+        }
+        
+        
+        static func footnote(color: UIColor = .label) -> UIViewStyle<UILabel> {
+            UIViewStyle<UILabel> { label in
+                label.font = UIFontMetrics(forTextStyle: .footnote)
+                    .scaledFont(for: UIFont.Custom.medium.withSize(13))
+                label.textColor = color
+            }
+        }
+        
+        
+        static func tableSectionHeader(color: UIColor = .label) -> UIViewStyle<UILabel> {
+            UIViewStyle<UILabel> { label in
+                label.font = UIFontMetrics(forTextStyle: .callout)
+                    .scaledFont(for: UIFont.Custom.bold.withSize(16))
+                label.textColor = color
+            }
+        }
+        
+        
+        static func formLabel(color: UIColor = .label) -> UIViewStyle<UILabel> {
+            UIViewStyle<UILabel> { label in
+                label.font = UIFontMetrics(forTextStyle: .subheadline)
+                    .scaledFont(for: UIFont.Custom.bold.withSize(14))
+                label.textColor = color
+            }
         }
     }
     
@@ -106,6 +139,7 @@ enum Style {
         }
     }
     
+    
     enum TextField {
         static func standard(color: UIColor = UIColor.label) -> UIViewStyle<UITextField> {
             UIViewStyle<UITextField> { textField in
@@ -121,8 +155,21 @@ enum Style {
                 .withAdjustment { textField in
                     textField.layer.cornerRadius = 8
                     textField.clipsToBounds = true
-                }
+            }
         }
     }
     
+    
+    enum TripActivityCell {
+        static let standard = UIViewStyle<UIView> { view in
+            view.backgroundColor = UIColor.Theme.background
+            view.addShadow(
+                opacity: 0.31,
+                radius: 4,
+                offset: CGSize(width: 0, height: 2),
+                color: UIColor.Theme.accent2.cgColor
+            )
+            view.layer.cornerRadius = view.frame.width * 0.025
+        }
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 
-struct Trip: Identifiable {
+struct Trip: HashableFromId {
     typealias RawIdentifier = String
     
     internal let id: Identifier<Trip> = .init(rawValue: UUID().uuidString)
@@ -17,14 +17,5 @@ struct Trip: Identifiable {
     var shortDescription: String?
     var primaryImageData: Data?
 }
-
-
-// MARK: - Hashable
-extension Trip: Hashable {
-    func combine(into hasher: inout Hasher) {
-        hasher.combine(id)
-    }
-}
-
 
 extension Trip: Codable {}

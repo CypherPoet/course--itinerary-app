@@ -135,7 +135,7 @@ private extension AddEditTripViewController {
             .xLargeBoldTitle(color: UIColor.Theme.accent1)
             .apply(to: mainTitleLabel)
         
-        Style.Label.formLabel.apply(to: destinationTextFieldLabel)
+        Style.Label.formLabel().apply(to: destinationTextFieldLabel)
         Style.TextField.inset().apply(to: destinationTextField)
         Style.Button.systemImage(named: "camera").apply(to: imagePickerButton)
     }

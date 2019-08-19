@@ -10,12 +10,15 @@ import UIKit
 
 final class TripsCoordinator: NavigationCoordinator {
     var navController: UINavigationController
-    lazy var tripsModelController = TripsModelController()
-
     
     init(navController: UINavigationController) {
         self.navController = navController
     }
+    
+    
+    lazy private var tripsModelController = TripsModelController()
+    var tripItineraryCoordinator: TripItineraryCoordinator?
+    
 }
 
 
@@ -81,6 +84,18 @@ extension TripsCoordinator: TripsListViewControllerDelegate {
     func viewController(_ controller: TripsListViewController, didSelectEditingFor trip: Trip) {
         presentAddEditTripVC(editing: trip)
     }
+    
+    
+    func viewController(_ controller: TripsListViewController, didSelectItineraryFor trip: Trip) {
+        
+        tripItineraryCoordinator = TripItineraryCoordinator(
+            trip: trip,
+            navController: navController
+        )
+        
+        tripItineraryCoordinator?.start()
+    }
+    
     
     func viewControllerDidSelectAddTrip(_ controller: TripsListViewController) {
         presentAddEditTripVC()

@@ -12,17 +12,18 @@ import UIKit
 protocol TripsListViewControllerDelegate: class {
     func viewControllerDidSelectAddTrip(_ controller: TripsListViewController)
     func viewController(_ controller: TripsListViewController, didSelectEditingFor trip: Trip)
+    func viewController(_ controller: TripsListViewController, didSelectItineraryFor trip: Trip)
 }
 
 
-final class TripsListViewController: UIViewController, Storyboarded {
+final class TripsListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
     
     weak var delegate: TripsListViewControllerDelegate?
     var modelController: TripsModelController!
     
-
+    private var isFirstShowingOfTrips = true
     private var currentDataSnapshot: DataSourceSnapshot!
     private var dataSource: DataSource!
 }
@@ -70,7 +71,12 @@ extension TripsListViewController {
 extension TripsListViewController: TripsModelControllerObserver {
 
     func modelController(_ controller: TripsModelController, didUpdate trips: [Trip]) {
-        DispatchQueue.main.async { self.updateSnapshot(withNew: trips) }
+        let shouldAnimate = !isFirstShowingOfTrips
+        isFirstShowingOfTrips = false
+        
+        DispatchQueue.main.async {
+            self.updateSnapshot(withNew: trips, animate: shouldAnimate)
+        }
     }
 }
 
@@ -130,7 +136,7 @@ private extension TripsListViewController {
     }
 
     
-    func updateSnapshot(withNew trips: [Trip]) {
+    func updateSnapshot(withNew trips: [Trip], animate: Bool = true) {
         guard let dataSource = dataSource else { return }
         
         currentDataSnapshot = DataSourceSnapshot()
@@ -138,7 +144,7 @@ private extension TripsListViewController {
         currentDataSnapshot.appendSections([.all])
         currentDataSnapshot.appendItems(trips)
         
-        dataSource.apply(currentDataSnapshot, animatingDifferences: true)
+        dataSource.apply(currentDataSnapshot, animatingDifferences: animate)
     }
     
     
@@ -219,4 +225,16 @@ extension TripsListViewController: UITableViewDelegate {
         
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
+    
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let trip = dataSource.itemIdentifier(for: indexPath) else {
+            preconditionFailure("Unable to find trip for cell")
+        }
+        
+        delegate?.viewController(self, didSelectItineraryFor: trip)
+    }
 }
+
+
+extension TripsListViewController: Storyboarded {}
