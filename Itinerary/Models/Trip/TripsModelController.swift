@@ -66,14 +66,7 @@ extension TripsModelController {
                 completionHandler?(.failure(error))
             }
             
-            let dummyTrips = [
-                Trip(title: "Trip to NYC", shortDescription: "🗽⚡️"),
-                Trip(title: "Trip to Chicago", shortDescription: "🏰⚡️"),
-                Trip(title: "Trip to London", shortDescription: "🇬🇧⚡️"),
-                Trip(title: "Trip to Paris", shortDescription: "🇫🇷⚡️"),
-            ]
-
-            self.trips = dummyTrips
+            self.trips = MockData.trips
         }
     }
     

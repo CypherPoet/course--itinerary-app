@@ -40,51 +40,12 @@ private extension TripItineraryCoordinator {
             named: R.storyboard.tripItinerary.name
         )
         
-        let sampleDays = [
-            TripDay(
-                date: Date(),
-                subtitle: "Flight",
-                activities: [
-                    TripActivity(
-                        title: "Activity 1",
-                        subtitle: "Subtitle",
-                        date: Date(),
-                        activityType: .flight
-                    ),
-                    TripActivity(
-                        title: "Activity 2",
-                        subtitle: "Subtitle",
-                        date: Date(),
-                        activityType: .flight
-                    )
-                ]
-            ),
-            TripDay(
-                date: Date(),
-                subtitle: "Flight",
-                activities: [
-                    TripActivity(
-                        title: "Activity 1",
-                        subtitle: "Subtitle",
-                        date: Date(),
-                        activityType: .flight
-                    ),
-                    TripActivity(
-                        title: "Activity 2",
-                        subtitle: "Subtitle",
-                        date: Date(),
-                        activityType: .flight
-                    )
-                ]
-            ),
-        ]
-        
         tripActivitiesViewController.viewModel = TripActivitiesViewModel(
             
         )
         
         tripActivitiesViewController.modelController = TripActivitiesModelController(
-            days: sampleDays
+            days: trip.days
         )
         
 //        tripActivitiesViewController.delegate = self
