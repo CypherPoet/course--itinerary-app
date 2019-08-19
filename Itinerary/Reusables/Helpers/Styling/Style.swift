@@ -164,8 +164,7 @@ enum Style {
         static let standard = UIViewStyle<UIView> { view in
             view.backgroundColor = UIColor.Theme.background
             view.addShadow(
-                opacity: 0.31,
-                radius: 4,
+                radius: 7,
                 offset: CGSize(width: 0, height: 2),
                 color: UIColor.Theme.accent2.cgColor
             )

@@ -13,6 +13,8 @@
 		F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31624A1229949AF0059E49C /* AppDelegate.swift */; };
 		F31624A9229949B00059E49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31624A8229949B00059E49C /* Assets.xcassets */; };
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
+		F35E4F3B230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */; };
+		F35E4F3C230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */; };
 		F360E95722FE9873005A0795 /* DataTaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95622FE9873005A0795 /* DataTaskToken.swift */; };
 		F360E95922FE9895005A0795 /* TaskToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = F360E95822FE9895005A0795 /* TaskToken.swift */; };
 		F366BD112306A7700019E76A /* Appearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD102306A7700019E76A /* Appearance.swift */; };
@@ -27,8 +29,6 @@
 		F366BD2E2308A5D20019E76A /* HashableFromId.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD2D2308A5D20019E76A /* HashableFromId.swift */; };
 		F366BD302308A67C0019E76A /* TripActivityType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD2F2308A67C0019E76A /* TripActivityType.swift */; };
 		F366BD322308A84A0019E76A /* TripActivitiesModelController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD312308A84A0019E76A /* TripActivitiesModelController.swift */; };
-		F366BD3523098DB60019E76A /* TripDayCollectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD3323098DB60019E76A /* TripDayCollectionHeaderReusableView.swift */; };
-		F366BD3623098DB60019E76A /* TripDayCollectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F366BD3423098DB60019E76A /* TripDayCollectionHeaderReusableView.xib */; };
 		F366BD852309F6F80019E76A /* TripActivityCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = F366BD832309F6F80019E76A /* TripActivityCollectionViewCell.xib */; };
 		F366BD862309F6F80019E76A /* TripActivityCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F366BD842309F6F80019E76A /* TripActivityCollectionViewCell.swift */; };
 		F36ADB0A22FCC1720028DEA3 /* Trips.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F36ADB0C22FCC1720028DEA3 /* Trips.storyboard */; };
@@ -104,6 +104,8 @@
 		F31624A8229949B00059E49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31624AB229949B00059E49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F31624AD229949B00059E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDayCollectionHeaderReusableView.swift; sourceTree = "<group>"; };
+		F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDayCollectionHeaderReusableView.xib; sourceTree = "<group>"; };
 		F360E95622FE9873005A0795 /* DataTaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Networking/DataTaskToken.swift"; sourceTree = "<group>"; };
 		F360E95822FE9895005A0795 /* TaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Protocols/TaskToken.swift"; sourceTree = "<group>"; };
 		F366BD102306A7700019E76A /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
@@ -118,8 +120,6 @@
 		F366BD2D2308A5D20019E76A /* HashableFromId.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HashableFromId.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Protocols/HashableFromId.swift"; sourceTree = "<group>"; };
 		F366BD2F2308A67C0019E76A /* TripActivityType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripActivityType.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Constants/TripActivityType.swift"; sourceTree = "<group>"; };
 		F366BD312308A84A0019E76A /* TripActivitiesModelController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripActivitiesModelController.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trip Itinerary/TripActivitiesModelController.swift"; sourceTree = "<group>"; };
-		F366BD3323098DB60019E76A /* TripDayCollectionHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TripDayCollectionHeaderReusableView.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trip Itinerary/TripDayCollectionHeaderReusableView.swift"; sourceTree = "<group>"; };
-		F366BD3423098DB60019E76A /* TripDayCollectionHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = TripDayCollectionHeaderReusableView.xib; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trip Itinerary/TripDayCollectionHeaderReusableView.xib"; sourceTree = "<group>"; };
 		F366BD832309F6F80019E76A /* TripActivityCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripActivityCollectionViewCell.xib; sourceTree = "<group>"; };
 		F366BD842309F6F80019E76A /* TripActivityCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripActivityCollectionViewCell.swift; sourceTree = "<group>"; };
 		F36ADB0B22FCC1720028DEA3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Trips.storyboard; sourceTree = "<group>"; };
@@ -256,6 +256,15 @@
 			path = Views;
 			sourceTree = "<group>";
 		};
+		F35E4F36230B48B2009D9C57 /* Day Collection Header */ = {
+			isa = PBXGroup;
+			children = (
+				F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */,
+				F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */,
+			);
+			path = "Day Collection Header";
+			sourceTree = "<group>";
+		};
 		F360E95522FE9853005A0795 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,13 +276,12 @@
 		F366BD16230741FF0019E76A /* Trip Itinerary */ = {
 			isa = PBXGroup;
 			children = (
+				F35E4F36230B48B2009D9C57 /* Day Collection Header */,
 				F366BD172307423C0019E76A /* TripItinerary.storyboard */,
 				F366BD312308A84A0019E76A /* TripActivitiesModelController.swift */,
 				F366BD192307427D0019E76A /* TripActivitiesViewController.swift */,
 				F366BD252308A0A40019E76A /* TripActivitiesViewModel.swift */,
-				F366BD3323098DB60019E76A /* TripDayCollectionHeaderReusableView.swift */,
 				F366BD2323089EF30019E76A /* TripItineraryCoordinator.swift */,
-				F366BD3423098DB60019E76A /* TripDayCollectionHeaderReusableView.xib */,
 				F366BD822309F6F80019E76A /* Activity Cell */,
 			);
 			path = "Trip Itinerary";
@@ -607,8 +615,8 @@
 				F3FB563822DBC8FC00BB31E7 /* Whitney-Black.ttf in Resources */,
 				F3FB566822DBC94600BB31E7 /* GothamPro-Bold.ttf in Resources */,
 				F3FB563C22DBC8FC00BB31E7 /* Whitney-BookItalic.ttf in Resources */,
-				F366BD3623098DB60019E76A /* TripDayCollectionHeaderReusableView.xib in Resources */,
 				F30C74072304458A0091C07D /* TripsListHelp.storyboard in Resources */,
+				F35E4F3C230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib in Resources */,
 				F3FB563422DBC8FC00BB31E7 /* Whitney-Semibold.ttf in Resources */,
 				F3FB563F22DBC8FC00BB31E7 /* Whitney-BlackItalic.ttf in Resources */,
 				F38A01DE22D304B200D8C5F3 /* TripTableViewCell.xib in Resources */,
@@ -736,11 +744,11 @@
 				F366BD112306A7700019E76A /* Appearance.swift in Sources */,
 				F38A01C622D1BAC300D8C5F3 /* Identity.swift in Sources */,
 				F38A01DD22D304B200D8C5F3 /* TripTableViewCell.swift in Sources */,
+				F35E4F3B230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift in Sources */,
 				F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */,
 				F38A01BC22D1B19C00D8C5F3 /* NavigationCoordinator.swift in Sources */,
 				F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */,
 				F38A01C822D1C0B300D8C5F3 /* DataLoader.swift in Sources */,
-				F366BD3523098DB60019E76A /* TripDayCollectionHeaderReusableView.swift in Sources */,
 				F36C60882302D84900705F7B /* UIViewController+DisplayPromptMessage.swift in Sources */,
 				F38A01BE22D1B19C00D8C5F3 /* Storyboarded.swift in Sources */,
 				F360E95922FE9895005A0795 /* TaskToken.swift in Sources */,
