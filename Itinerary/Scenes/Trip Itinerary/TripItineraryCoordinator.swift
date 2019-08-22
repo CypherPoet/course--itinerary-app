@@ -32,23 +32,18 @@ extension TripItineraryCoordinator: Coordinator {
     }
 }
 
+
 // MARK: - Private Helpers
 private extension TripItineraryCoordinator {
   
     func showActivitiesView() {
-        let tripActivitiesViewController = TripActivitiesViewController.instantiateFromStoryboard(
-            named: R.storyboard.tripItinerary.name
+        let tripActivitiesViewController = TripActivitiesViewController.instantiate(
+            viewModel: TripActivitiesViewModel(),
+            modelController: TripActivitiesModelController(days: trip.days)
         )
         
-        tripActivitiesViewController.viewModel = TripActivitiesViewModel(
-            
-        )
-        
-        tripActivitiesViewController.modelController = TripActivitiesModelController(
-            days: trip.days
-        )
-        
-//        tripActivitiesViewController.delegate = self
+        tripActivitiesViewController.title = trip.title
+        tripActivitiesViewController.navigationItem.largeTitleDisplayMode = .never
         
         navController.pushViewController(tripActivitiesViewController, animated: true)
     }

@@ -162,12 +162,6 @@ enum Style {
     
     enum TripActivityCell {
         static let standard = UIViewStyle<UIView> { view in
-            view.backgroundColor = UIColor.Theme.background
-            view.addShadow(
-                radius: 7,
-                offset: CGSize(width: 0, height: 2),
-                color: UIColor.Theme.accent2.cgColor
-            )
             view.layer.cornerRadius = view.frame.width * 0.025
         }
     }

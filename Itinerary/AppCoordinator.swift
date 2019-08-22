@@ -29,6 +29,7 @@ final class AppCoordinator: NavigationCoordinator {
         window.makeKeyAndVisible()
         
         Appearance.apply(to: window)
+        Appearance.apply(to: navController.navigationBar)
         
         showTrips()
     }

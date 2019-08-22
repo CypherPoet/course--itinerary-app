@@ -13,6 +13,7 @@
 		F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F31624A1229949AF0059E49C /* AppDelegate.swift */; };
 		F31624A9229949B00059E49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31624A8229949B00059E49C /* Assets.xcassets */; };
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
+		F34C5799230C89DC006F4667 /* SectionBackgroundDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C5798230C89DC006F4667 /* SectionBackgroundDecoration.swift */; };
 		F35E4F3B230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */; };
 		F35E4F3C230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */; };
 		F35E4F3E230B5862009D9C57 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E4F3D230B5862009D9C57 /* MockData.swift */; };
@@ -105,9 +106,11 @@
 		F31624A8229949B00059E49C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F31624AB229949B00059E49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F31624AD229949B00059E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F34C5798230C89DC006F4667 /* SectionBackgroundDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBackgroundDecoration.swift; sourceTree = "<group>"; };
 		F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDayCollectionHeaderReusableView.swift; sourceTree = "<group>"; };
 		F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDayCollectionHeaderReusableView.xib; sourceTree = "<group>"; };
 		F35E4F3D230B5862009D9C57 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockData.swift; path = "../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Models/MockData.swift"; sourceTree = "<group>"; };
+		F35E4F54230B833E009D9C57 /* Foo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Foo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F360E95622FE9873005A0795 /* DataTaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DataTaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Networking/DataTaskToken.swift"; sourceTree = "<group>"; };
 		F360E95822FE9895005A0795 /* TaskToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TaskToken.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Reusables/Protocols/TaskToken.swift"; sourceTree = "<group>"; };
 		F366BD102306A7700019E76A /* Appearance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appearance.swift; sourceTree = "<group>"; };
@@ -201,6 +204,7 @@
 		57093000AFA6694CAE51582F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F35E4F54230B833E009D9C57 /* Foo.framework */,
 				6863F0A5818FA1756477FE85 /* Pods_Itinerary.framework */,
 			);
 			name = Frameworks;
@@ -250,9 +254,18 @@
 			path = Itinerary;
 			sourceTree = "<group>";
 		};
+		F34C5797230C89C4006F4667 /* Collections */ = {
+			isa = PBXGroup;
+			children = (
+				F34C5798230C89DC006F4667 /* SectionBackgroundDecoration.swift */,
+			);
+			path = Collections;
+			sourceTree = "<group>";
+		};
 		F350F9B022FB1352002A1F23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F34C5797230C89C4006F4667 /* Collections */,
 				F3CDD187230442490025B8D5 /* FilledActionButton.swift */,
 			);
 			path = Views;
@@ -339,10 +352,10 @@
 		F38A01B222D1ABEC00D8C5F3 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				F366BD122306A7D40019E76A /* AppUserDefaults.swift */,
 				F38A01C722D1C0B300D8C5F3 /* DataLoader.swift */,
 				F38A01D822D2BA3E00D8C5F3 /* TableViewDataSource.swift */,
 				F39C044F22DE1C640053C76E /* Styling */,
-				F366BD122306A7D40019E76A /* AppUserDefaults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -764,6 +777,7 @@
 				F36C60862302D84900705F7B /* UIViewController+Computeds.swift in Sources */,
 				F39C045122DE1D750053C76E /* Style.swift in Sources */,
 				F366BD2C2308A4060019E76A /* TripActivity.swift in Sources */,
+				F34C5799230C89DC006F4667 /* SectionBackgroundDecoration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

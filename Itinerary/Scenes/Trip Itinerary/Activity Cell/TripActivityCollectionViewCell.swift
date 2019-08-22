@@ -54,12 +54,9 @@ private extension TripActivityCollectionViewCell {
     
     
     func styleViews() {
-        let textColor = UIColor.systemGray3
-        
         Style.TripActivityCell.standard.apply(to: contentContainerView)
-        Style.Label.headline(color: textColor).apply(to: activityTitleLabel)
-        Style.Label.subheadline(color: textColor).apply(to: activitySubtitleLabel)
-        activityTypeImageView.tintColor = textColor
+        Style.Label.headline().apply(to: activityTitleLabel)
+        Style.Label.subheadline().apply(to: activitySubtitleLabel)
     }
 }
 

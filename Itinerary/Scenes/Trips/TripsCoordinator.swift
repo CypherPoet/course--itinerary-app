@@ -87,7 +87,6 @@ extension TripsCoordinator: TripsListViewControllerDelegate {
     
     
     func viewController(_ controller: TripsListViewController, didSelectItineraryFor trip: Trip) {
-        
         tripItineraryCoordinator = TripItineraryCoordinator(
             trip: trip,
             navController: navController

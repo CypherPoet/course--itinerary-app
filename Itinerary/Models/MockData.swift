@@ -14,8 +14,10 @@ enum MockData {
     
     
     private static func createMockTrips() -> [Trip] {
+        let mockImageData = R.image.catalina()?.jpegData(compressionQuality: 0.8)
+        
         return [
-            Trip(title: "Trip to NYC", shortDescription: "🗽⚡️", days: createMockDays()),
+            Trip(title: "Trip to NYC", shortDescription: "🗽⚡️", primaryImageData: mockImageData, days: createMockDays()),
             Trip(title: "Trip to Chicago", shortDescription: "🏰⚡️", days: createMockDays()),
             Trip(title: "Trip to London", shortDescription: "🇬🇧⚡️", days: createMockDays()),
             Trip(title: "Trip to Paris", shortDescription: "🇫🇷⚡️", days: createMockDays()),

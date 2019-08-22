@@ -11,13 +11,29 @@ import UIKit
 class TripActivitiesViewController: UIViewController {
     @IBOutlet private var collectionView: UICollectionView!
     
-    
+    // swiftlint:disable implicitly_unwrapped_optional
     var viewModel: TripActivitiesViewModel!
     var modelController: TripActivitiesModelController!
-    
+
     
     private var currentDataSnapshot: DataSourceSnapshot!
     private var dataSource: DataSource!
+    // swiftlint:enable implicitly_unwrapped_optional
+    
+    
+    static func instantiate(
+        viewModel: TripActivitiesViewModel,
+        modelController: TripActivitiesModelController
+    ) -> Self {
+        let viewController = Self.instantiateFromStoryboard(
+            named: R.storyboard.tripItinerary.name
+        )
+        
+        viewController.viewModel = viewModel
+        viewController.modelController = modelController
+        
+        return viewController
+    }
 }
 
 
@@ -26,6 +42,10 @@ private extension TripActivitiesViewController {
 //    enum TableSection {
 //        case day
 //    }
+    
+    enum DecorationElementKind {
+        static let sectionBackground = "Section Background"
+    }
     
     enum SupplementaryViewKind {
         static let sectionHeader = "Section Header"
@@ -47,19 +67,29 @@ private extension TripActivitiesViewController {
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: itemSize, subitems: [dayItem])
         let section = NSCollectionLayoutSection(group: group)
         
-        section.contentInsets = .init(top: 0, leading: 16, bottom: 36, trailing: 16)
+        section.contentInsets = .init(top: 0, leading: 36, bottom: 56, trailing: 36)
         section.interGroupSpacing = 14
         
-        let layoutSectionHeader = makeLayoutSectionHeader()
+        let sectionHeader = makeLayoutSectionHeader()
+        section.boundarySupplementaryItems = [sectionHeader]
 
-        section.boundarySupplementaryItems = [layoutSectionHeader]
+        let sectionDecoration = NSCollectionLayoutDecorationItem.background(elementKind: DecorationElementKind.sectionBackground)
+
+        sectionDecoration.contentInsets = .init(
+            top: 0,
+            leading: section.contentInsets.leading / 2,
+            bottom: section.contentInsets.bottom - 16,
+            trailing: section.contentInsets.trailing / 2
+        )
+        
+        section.decorationItems = [sectionDecoration]
         
         return UICollectionViewCompositionalLayout(section: section)
     }
     
     
     func makeLayoutSectionHeader() -> NSCollectionLayoutBoundarySupplementaryItem {
-        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .estimated(18))
+        let headerSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0), heightDimension: .absolute(42))
         
         return NSCollectionLayoutBoundarySupplementaryItem(
             layoutSize: headerSize,
@@ -68,7 +98,7 @@ private extension TripActivitiesViewController {
             absoluteOffset: CGPoint(x: 0, y: -8)
         )
     }
-    
+
     
     func makeSectionSupplementaryViewProvider() -> SectionSupplementaryViewProvider {
         return {
@@ -135,14 +165,14 @@ extension TripActivitiesViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        assert(viewModel != nil, "No viewModel was set")
-        assert(modelController != nil, "No modelController was set")
-        
         dataSource = makeDataSource()
         setupLayout()
         
         updateSnapshot(withNew: modelController.days)
     }
+
+    // TODO: Get this to actually work
+    override var preferredStatusBarStyle: UIStatusBarStyle { .darkContent }
 }
 
 
@@ -183,10 +213,13 @@ private extension TripActivitiesViewController {
             forSupplementaryViewOfKind: SupplementaryViewKind.sectionHeader,
             withReuseIdentifier: R.reuseIdentifier.tripDayCollectionSectionHeader.identifier
         )
-        
-        
+
         collectionView.collectionViewLayout = createLayout()
-//        collectionView.delegate = self
+
+        collectionView.collectionViewLayout.register(
+            SectionBackgroundDecoration.self,
+            forDecorationViewOfKind: DecorationElementKind.sectionBackground
+        )
     }
     
     
