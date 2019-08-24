@@ -34,6 +34,23 @@ class AddEditTripViewController: UITableViewController {
             }
         }
     }
+    
+    
+    static func instantiate(
+        viewModel: ViewModel,
+        modelController: TripsModelController,
+        delegate: AddEditTripViewControllerDelegate? = nil
+    ) -> AddEditTripViewController {
+        let viewController = AddEditTripViewController.instantiateFromStoryboard(
+            named: R.storyboard.addEditTrip.name
+        )
+        
+        viewController.viewModel = viewModel
+        viewController.modelController = modelController
+        viewController.delegate = delegate
+        
+        return viewController
+    }
 }
 
 
@@ -77,9 +94,6 @@ extension AddEditTripViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        assert(modelController != nil, "No modelController was set")
-        assert(viewModel != nil, "No viewModel was set")
 
         setupUI()
         render(with: viewModel)

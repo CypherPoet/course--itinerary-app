@@ -52,13 +52,11 @@ extension TripsCoordinator: Coordinator {
 private extension TripsCoordinator {
     
     func presentAddEditTripVC(editing tripToEdit: Trip? = nil) {
-        let addEditTripVC = AddEditTripViewController.instantiateFromStoryboard(
-            named: R.storyboard.addEditTrip.name
+        let addEditTripVC = AddEditTripViewController.instantiate(
+            viewModel: .init(tripToEdit: tripToEdit),
+            modelController: tripsModelController,
+            delegate: self
         )
-        
-        addEditTripVC.delegate = self
-        addEditTripVC.modelController = tripsModelController
-        addEditTripVC.viewModel = .init(tripToEdit: tripToEdit)
         
         let childNavController = UINavigationController(rootViewController: addEditTripVC)
         Appearance.apply(to: childNavController.navigationBar)
