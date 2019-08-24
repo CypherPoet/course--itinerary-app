@@ -33,6 +33,8 @@ extension UIViewController {
             UIAlertAction(title: cancelButtonTitle, style: .cancel, handler: cancelationHandler)
         )
         
-        present(alertController, animated: true)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+        }
     }
 }

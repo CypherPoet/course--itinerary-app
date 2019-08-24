@@ -28,10 +28,18 @@ final class TripsModelController {
     }
 }
 
+extension TripsModelController {
+    enum TripsModelControllerError: Error {
+        case dayConflict
+    }
+}
+
+
 // MARK: - Core Methods
 extension TripsModelController {
     
-    typealias CompletionHandler = (Result<[Trip], Error>) -> Void
+    typealias TripsCompletionHandler = (Result<[Trip], Error>) -> Void
+    typealias TripCompletionHandler = (Result<Trip, Error>) -> Void
     
     
     func addTripsObserver(_ observer: TripsModelControllerObserver) {
@@ -44,7 +52,7 @@ extension TripsModelController {
     }
     
     
-    func loadTrips(then completionHandler: CompletionHandler? = nil) {
+    func loadTrips(then completionHandler: TripsCompletionHandler? = nil) {
         let url = Endpoint.Trip.localURL
         
         dataLoader.load(from: url) { [weak self] dataResult in
@@ -71,19 +79,41 @@ extension TripsModelController {
     }
     
     
-    
-    func create(_ trip: Trip, then completionHandler: CompletionHandler? = nil) {
+    func create(_ trip: Trip, then completionHandler: TripsCompletionHandler? = nil) {
         trips.append(trip)
         completionHandler?(.success(trips))
     }
     
     
-    func update(_ updatedTrip: Trip, then completionHandler: CompletionHandler? = nil) {
+    func create(
+        _ newDay: TripDay,
+        for trip: Trip,
+        then completionHandler: TripCompletionHandler? = nil
+    ) {
+        guard let tripIndex = trips.firstIndex(of: trip) else {
+            preconditionFailure("Trip not found")
+        }
+        
+        var tripToUpdate = trips[tripIndex]
+        
+        guard tripToUpdate.days.allSatisfy({ $0.isOnDifferentDay(than: newDay) }) else {
+            completionHandler?(.failure(TripsModelControllerError.dayConflict))
+            return
+        }
+        
+        tripToUpdate.days.append(newDay)
+        trips[tripIndex] = tripToUpdate
+        
+        completionHandler?(.success(tripToUpdate))
+    }
+    
+    
+    func update(_ updatedTrip: Trip, then completionHandler: TripsCompletionHandler? = nil) {
         
     }
     
     
-    func delete(_ trip: Trip, then completionHandler: CompletionHandler? = nil) {
+    func delete(_ trip: Trip, then completionHandler: TripsCompletionHandler? = nil) {
         guard let index = trips.firstIndex(of: trip) else {
             preconditionFailure("Unable to find index for trip")
         }

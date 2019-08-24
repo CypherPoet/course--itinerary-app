@@ -14,6 +14,12 @@
 		F31624A9229949B00059E49C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F31624A8229949B00059E49C /* Assets.xcassets */; };
 		F31624AC229949B00059E49C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F31624AA229949B00059E49C /* LaunchScreen.storyboard */; };
 		F34C5799230C89DC006F4667 /* SectionBackgroundDecoration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C5798230C89DC006F4667 /* SectionBackgroundDecoration.swift */; };
+		F34C57DB230E5019006F4667 /* ActionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C57DA230E5019006F4667 /* ActionSheet.swift */; };
+		F34C57DD230E5BEC006F4667 /* TripActivitiesViewController+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C57DC230E5BEC006F4667 /* TripActivitiesViewController+Layout.swift */; };
+		F34C57E1230F2EBA006F4667 /* AddEditDayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C57E0230F2EBA006F4667 /* AddEditDayViewController.swift */; };
+		F34C57E3230F2EEE006F4667 /* AddEditDay.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F34C57E2230F2EEE006F4667 /* AddEditDay.storyboard */; };
+		F34C57E5230F3700006F4667 /* AddEditDayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C57E4230F3700006F4667 /* AddEditDayViewModel.swift */; };
+		F34C57F6230FD045006F4667 /* Date+Formatted.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34C57F5230FD045006F4667 /* Date+Formatted.swift */; };
 		F35E4F3B230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */; };
 		F35E4F3C230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */; };
 		F35E4F3E230B5862009D9C57 /* MockData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F35E4F3D230B5862009D9C57 /* MockData.swift */; };
@@ -107,6 +113,12 @@
 		F31624AB229949B00059E49C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F31624AD229949B00059E49C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F34C5798230C89DC006F4667 /* SectionBackgroundDecoration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionBackgroundDecoration.swift; sourceTree = "<group>"; };
+		F34C57DA230E5019006F4667 /* ActionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionSheet.swift; sourceTree = "<group>"; };
+		F34C57DC230E5BEC006F4667 /* TripActivitiesViewController+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TripActivitiesViewController+Layout.swift"; sourceTree = "<group>"; };
+		F34C57E0230F2EBA006F4667 /* AddEditDayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditDayViewController.swift; sourceTree = "<group>"; };
+		F34C57E2230F2EEE006F4667 /* AddEditDay.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = AddEditDay.storyboard; sourceTree = "<group>"; };
+		F34C57E4230F3700006F4667 /* AddEditDayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditDayViewModel.swift; sourceTree = "<group>"; };
+		F34C57F5230FD045006F4667 /* Date+Formatted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Formatted.swift"; sourceTree = "<group>"; };
 		F35E4F39230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TripDayCollectionHeaderReusableView.swift; sourceTree = "<group>"; };
 		F35E4F3A230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TripDayCollectionHeaderReusableView.xib; sourceTree = "<group>"; };
 		F35E4F3D230B5862009D9C57 /* MockData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MockData.swift; path = "../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Models/MockData.swift"; sourceTree = "<group>"; };
@@ -262,6 +274,24 @@
 			path = Collections;
 			sourceTree = "<group>";
 		};
+		F34C57DF230F2E8A006F4667 /* Add Edit Day */ = {
+			isa = PBXGroup;
+			children = (
+				F34C57E0230F2EBA006F4667 /* AddEditDayViewController.swift */,
+				F34C57E4230F3700006F4667 /* AddEditDayViewModel.swift */,
+				F34C57E2230F2EEE006F4667 /* AddEditDay.storyboard */,
+			);
+			path = "Add Edit Day";
+			sourceTree = "<group>";
+		};
+		F34C57F4230FD036006F4667 /* Date */ = {
+			isa = PBXGroup;
+			children = (
+				F34C57F5230FD045006F4667 /* Date+Formatted.swift */,
+			);
+			path = Date;
+			sourceTree = "<group>";
+		};
 		F350F9B022FB1352002A1F23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -291,10 +321,12 @@
 		F366BD16230741FF0019E76A /* Trip Itinerary */ = {
 			isa = PBXGroup;
 			children = (
+				F34C57DF230F2E8A006F4667 /* Add Edit Day */,
 				F35E4F36230B48B2009D9C57 /* Day Collection Header */,
 				F366BD172307423C0019E76A /* TripItinerary.storyboard */,
 				F366BD312308A84A0019E76A /* TripActivitiesModelController.swift */,
 				F366BD192307427D0019E76A /* TripActivitiesViewController.swift */,
+				F34C57DC230E5BEC006F4667 /* TripActivitiesViewController+Layout.swift */,
 				F366BD252308A0A40019E76A /* TripActivitiesViewModel.swift */,
 				F366BD2323089EF30019E76A /* TripItineraryCoordinator.swift */,
 				F366BD822309F6F80019E76A /* Activity Cell */,
@@ -356,6 +388,7 @@
 				F38A01C722D1C0B300D8C5F3 /* DataLoader.swift */,
 				F38A01D822D2BA3E00D8C5F3 /* TableViewDataSource.swift */,
 				F39C044F22DE1C640053C76E /* Styling */,
+				F34C57DA230E5019006F4667 /* ActionSheet.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -409,6 +442,7 @@
 		F38A01CC22D1CE6F00D8C5F3 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				F34C57F4230FD036006F4667 /* Date */,
 				F36C60802302D71600705F7B /* UIViewController */,
 				F3FB55C522DBB4C000BB31E7 /* UIView */,
 				F38A01CD22D1CE8800D8C5F3 /* FileManager+UserDocumentsDirectory.swift */,
@@ -609,6 +643,7 @@
 				F3FB566D22DBC94600BB31E7 /* GothamPro-MediumItalic.ttf in Resources */,
 				F3FB564022DBC8FC00BB31E7 /* Whitney-SemiboldItalic.ttf in Resources */,
 				F3FB563922DBC8FC00BB31E7 /* Whitney-Book.ttf in Resources */,
+				F34C57E3230F2EEE006F4667 /* AddEditDay.storyboard in Resources */,
 				F366BD182307423C0019E76A /* TripItinerary.storyboard in Resources */,
 				F3FB566722DBC94600BB31E7 /* GothamPro.ttf in Resources */,
 				F38EF83922B127CD0031BE50 /* .swiftlint.yml in Resources */,
@@ -752,13 +787,17 @@
 				F366BD262308A0A40019E76A /* TripActivitiesViewModel.swift in Sources */,
 				F374B78122F6FA88006A712B /* AddEditTripViewController.swift in Sources */,
 				F366BD2A2308A3E90019E76A /* TripDay.swift in Sources */,
+				F34C57DB230E5019006F4667 /* ActionSheet.swift in Sources */,
 				F38A01D322D2A5DC00D8C5F3 /* TripsCoordinator.swift in Sources */,
+				F34C57E1230F2EBA006F4667 /* AddEditDayViewController.swift in Sources */,
+				F34C57F6230FD045006F4667 /* Date+Formatted.swift in Sources */,
 				F366BD862309F6F80019E76A /* TripActivityCollectionViewCell.swift in Sources */,
 				F38A022F22DA6B6F00D8C5F3 /* TripTableViewCell+ViewModel.swift in Sources */,
 				F38A01C122D1B64400D8C5F3 /* TripsModelController.swift in Sources */,
 				F3FB55C722DBB4D900BB31E7 /* UIView+AddShadow.swift in Sources */,
 				F366BD132306A7D40019E76A /* AppUserDefaults.swift in Sources */,
 				F366BD112306A7700019E76A /* Appearance.swift in Sources */,
+				F34C57DD230E5BEC006F4667 /* TripActivitiesViewController+Layout.swift in Sources */,
 				F38A01C622D1BAC300D8C5F3 /* Identity.swift in Sources */,
 				F38A01DD22D304B200D8C5F3 /* TripTableViewCell.swift in Sources */,
 				F35E4F3B230B4A05009D9C57 /* TripDayCollectionHeaderReusableView.swift in Sources */,
@@ -772,6 +811,7 @@
 				F366BD152306B2A20019E76A /* AppStateController.swift in Sources */,
 				F31624A2229949AF0059E49C /* AppDelegate.swift in Sources */,
 				F3CDD188230442490025B8D5 /* FilledActionButton.swift in Sources */,
+				F34C57E5230F3700006F4667 /* AddEditDayViewModel.swift in Sources */,
 				F36C60872302D84900705F7B /* UIViewController+DisplayAlertMessage.swift in Sources */,
 				F38EF83C22B128660031BE50 /* R.generated.swift in Sources */,
 				F36C60862302D84900705F7B /* UIViewController+Computeds.swift in Sources */,

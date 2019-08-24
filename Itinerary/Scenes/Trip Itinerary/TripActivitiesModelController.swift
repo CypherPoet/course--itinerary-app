@@ -11,10 +11,23 @@ import UIKit
 
 final class TripActivitiesModelController {
     
-    var days: [TripDay]
+    var trip: Trip {
+        didSet { sortedDays = getSortedDays() }
+    }
+    
+    private(set) var sortedDays: [TripDay] = []
     
     
-    init(days: [TripDay]) {
-        self.days = days
+    init(trip: Trip) {
+        self.trip = trip
+        self.sortedDays = getSortedDays()
+    }
+}
+
+
+private extension TripActivitiesModelController {
+    
+    func getSortedDays() -> [TripDay] {
+        trip.days.sorted { $0.date < $1.date }
     }
 }

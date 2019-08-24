@@ -61,6 +61,8 @@ private extension TripsCoordinator {
         addEditTripVC.viewModel = .init(tripToEdit: tripToEdit)
         
         let childNavController = UINavigationController(rootViewController: addEditTripVC)
+        Appearance.apply(to: childNavController.navigationBar)
+        
         navController.present(childNavController, animated: true)
     }
     
@@ -88,8 +90,9 @@ extension TripsCoordinator: TripsListViewControllerDelegate {
     
     func viewController(_ controller: TripsListViewController, didSelectItineraryFor trip: Trip) {
         tripItineraryCoordinator = TripItineraryCoordinator(
-            trip: trip,
-            navController: navController
+            modelController: TripActivitiesModelController(trip: trip),
+            navController: navController,
+            delegate: self
         )
         
         tripItineraryCoordinator?.start()
@@ -122,4 +125,28 @@ extension TripsCoordinator: TripsListHelpViewControllerDelegate {
     func viewControllerDidTapCloseButton(_ controller: TripsListHelpViewController) {
         navController.dismiss(animated: true)
     }
+}
+
+
+// MARK: - TripItineraryCoordinatorDelegate
+extension TripsCoordinator: TripItineraryCoordinatorDelegate {
+    
+    func coordinator(
+        _ coordinator: TripItineraryCoordinator,
+        didAdd newDay: TripDay,
+        to trip: Trip,
+        then completionHandler: @escaping ((Result<Trip, Error>) -> Void)
+    ) {
+        tripsModelController.create(newDay, for: trip) { result in
+            switch result {
+            case .success(let updatedTrip):
+                completionHandler(.success(updatedTrip))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+        
+    }
+    
+    
 }

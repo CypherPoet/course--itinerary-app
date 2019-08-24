@@ -26,6 +26,8 @@ extension UIViewController {
             UIAlertAction(title: confirmButtonTitle, style: .default, handler: confirmationHandler)
         )
         
-        present(alertController, animated: true)
+        DispatchQueue.main.async {
+            self.present(alertController, animated: true)
+        }
     }
 }

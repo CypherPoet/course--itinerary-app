@@ -70,13 +70,6 @@ extension TripDayCollectionHeaderReusableView {
         var subtitle: String
         
         
-        var dateLabelText: String {
-            let formatter = DateFormatter()
-            
-            formatter.dateStyle = .long
-            formatter.timeStyle = .none
-            
-            return formatter.string(from: date)
-        }
+        var dateLabelText: String { date.formattedDay }
     }
 }
