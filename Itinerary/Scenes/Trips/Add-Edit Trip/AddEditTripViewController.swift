@@ -34,7 +34,7 @@ class AddEditTripViewController: UITableViewController {
             }
         }
     }
-    
+
     
     static func instantiate(
         viewModel: ViewModel,

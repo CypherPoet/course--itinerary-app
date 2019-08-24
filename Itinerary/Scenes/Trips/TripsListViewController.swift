@@ -20,12 +20,27 @@ final class TripsListViewController: UIViewController {
     @IBOutlet private var tableView: UITableView!
     
     
+    private var modelController: TripsModelController!
     weak var delegate: TripsListViewControllerDelegate?
-    var modelController: TripsModelController!
     
     private var isFirstShowingOfTrips = true
     private var currentDataSnapshot: DataSourceSnapshot!
     private var dataSource: DataSource!
+    
+    
+    static func instantiate(
+        modelController: TripsModelController,
+        delegate: TripsListViewControllerDelegate? = nil
+    ) -> TripsListViewController {
+        let viewController = TripsListViewController.instantiateFromStoryboard(
+            named: R.storyboard.trips.name
+        )
+        
+        viewController.modelController = modelController
+        viewController.delegate = delegate
+        
+        return viewController
+    }
 }
 
 
@@ -46,8 +61,6 @@ extension TripsListViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        assert(modelController != nil, "No modelController was set")
         
         modelController.addTripsObserver(self)
         dataSource = makeTableViewDataSource()

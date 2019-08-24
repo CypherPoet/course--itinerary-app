@@ -26,14 +26,12 @@ final class TripsCoordinator: NavigationCoordinator {
 extension TripsCoordinator: Coordinator {
     
     func start() {
-        let tripsListVC = TripsListViewController.instantiateFromStoryboard(
-            named: R.storyboard.trips.name
+        let tripsListVC = TripsListViewController.instantiate(
+            modelController: tripsModelController,
+            delegate: self
         )
         
-        tripsListVC.delegate = self
         tripsListVC.navigationItem.title = "My Trips"
-        tripsListVC.modelController = tripsModelController
-
         
         navController.navigationBar.prefersLargeTitles = true
         navController.setViewControllers([tripsListVC], animated: true)
