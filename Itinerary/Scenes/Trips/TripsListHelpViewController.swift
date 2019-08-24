@@ -21,6 +21,21 @@ class TripsListHelpViewController: UIViewController {
     weak var delegate: TripsListHelpViewControllerDelegate?
     
     
+    static func instantiate(
+        delegate: TripsListHelpViewControllerDelegate? = nil
+    ) -> TripsListHelpViewController {
+        let viewController = TripsListHelpViewController.instantiateFromStoryboard(
+            named: R.storyboard.tripsListHelp.name
+        )
+        
+        viewController.delegate = delegate
+        
+        return viewController
+    }
+}
+
+
+extension TripsListHelpViewController {
     override func loadView() {
         super.loadView()
             
@@ -28,8 +43,10 @@ class TripsListHelpViewController: UIViewController {
         
         closeButton.addTarget(self, action: #selector(TripsListHelpViewController.closeButtonTapped(_:)), for: .touchUpInside)
     }
-    
-    
+}
+
+
+extension TripsListHelpViewController {
     @objc func closeButtonTapped(_ button: UIButton) {
         delegate?.viewControllerDidTapCloseButton(self)
     }

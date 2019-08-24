@@ -66,13 +66,11 @@ private extension TripsCoordinator {
     
     
     func showHelpViewOverlay() {
-        let helpViewController = TripsListHelpViewController.instantiateFromStoryboard(
-            named: R.storyboard.tripsListHelp.name
+        let helpViewController = TripsListHelpViewController.instantiate(
+            delegate: self
         )
-        
-        helpViewController.delegate = self
+
         helpViewController.modalPresentationStyle = .fullScreen
-        
         navController.present(helpViewController, animated: true)
     }
 }
