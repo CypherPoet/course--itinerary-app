@@ -12,7 +12,7 @@ import Foundation
 extension AddEditTripViewController {
     
     struct ViewModel {
-        var tripToEdit: Trip? = nil
+        var tripToEdit: Trip?
     }
 }
 

@@ -49,11 +49,7 @@ class AddEditDayViewController: UITableViewController {
 
 // MARK: - Computeds
 extension AddEditDayViewController {
-    
-    var canSubmitChanges: Bool {
-        viewModel.subtitle != nil && viewModel.dateForDay != nil
-    }
-    
+    var canSubmitChanges: Bool { viewModel.subtitle != nil }
 
     var dayFromFormData: TripDay {
         guard canSubmitChanges else { fatalError() }
