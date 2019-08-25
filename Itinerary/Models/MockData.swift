@@ -43,13 +43,13 @@ enum MockData {
         switch day {
         case day1, day4:
             return [
-                TripActivity(title: "Flight from Home", subtitle: "First Class Seating", date: Date(), activityType: .flight, photoData: nil),
-                TripActivity(title: "Arrive at Airport", subtitle: "", date: Date(), activityType: .flight, photoData: nil),
+                TripActivity(title: "Flight from Home", subtitle: "First Class Seating", activityType: .flight, photoData: nil),
+                TripActivity(title: "Arrive at Airport", subtitle: "", activityType: .flight, photoData: nil),
             ]
         case day2, day3:
             return [
-                TripActivity(title: "Visit Museum", subtitle: "Take Plenty of Photos", date: Date(), activityType: .exploration, photoData: nil),
-                TripActivity(title: "Cafe", subtitle: "☕️", date: Date(), activityType: .food, photoData: nil),
+                TripActivity(title: "Visit Museum", subtitle: "Take Plenty of Photos", activityType: .exploration, photoData: nil),
+                TripActivity(title: "Cafe", subtitle: "☕️", activityType: .food, photoData: nil),
             ]
         default:
             preconditionFailure("Unknown day")

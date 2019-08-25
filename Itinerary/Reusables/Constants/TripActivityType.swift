@@ -9,7 +9,7 @@
 import UIKit
 
 
-enum TripActivityType: String {
+enum TripActivityType: String, CaseIterable {
     case flight
     case groundTransport
     case lodging

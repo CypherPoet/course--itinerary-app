@@ -17,9 +17,19 @@ struct TripActivity: HashableFromId {
     
     var title: String
     var subtitle: String
-    var date: Date
     var activityType: TripActivityType
     var photoData: Data?
+}
+
+
+extension TripActivity: Comparable {
+    
+    // 🔑 A better solution would be to support specific times for
+    // activities and sort on those.
+    // This is a cool exercise, though 😛
+    static func < (lhs: TripActivity, rhs: TripActivity) -> Bool {
+        lhs.title.localizedStandardCompare(rhs.title) == .orderedAscending
+    }
 }
 
 

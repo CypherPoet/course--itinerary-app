@@ -29,7 +29,9 @@ final class TripsModelController {
 }
 
 extension TripsModelController {
-    enum TripsModelControllerError: Error {
+    enum Error: Swift.Error {
+        case noTripFoundForUpdate
+        case noDayFoundForUpdate
         case dayConflict
     }
 }
@@ -38,7 +40,7 @@ extension TripsModelController {
 // MARK: - Core Methods
 extension TripsModelController {
     
-    typealias TripsCompletionHandler = (Result<[Trip], Error>) -> Void
+    typealias TripsCompletionHandler = (Result<[Trip], Swift.Error>) -> Void
     typealias TripCompletionHandler = (Result<Trip, Error>) -> Void
     
     
@@ -91,13 +93,14 @@ extension TripsModelController {
         then completionHandler: TripCompletionHandler? = nil
     ) {
         guard let tripIndex = trips.firstIndex(of: trip) else {
-            preconditionFailure("Trip not found")
+            completionHandler?(.failure(.noTripFoundForUpdate))
+            return
         }
         
         var tripToUpdate = trips[tripIndex]
         
         guard tripToUpdate.days.allSatisfy({ $0.isOnDifferentDay(than: newDay) }) else {
-            completionHandler?(.failure(TripsModelControllerError.dayConflict))
+            completionHandler?(.failure(.dayConflict))
             return
         }
         
@@ -105,6 +108,35 @@ extension TripsModelController {
         trips[tripIndex] = tripToUpdate
         
         completionHandler?(.success(tripToUpdate))
+    }
+    
+    
+    func add(
+        _ newActivity: TripActivity,
+        to day: TripDay,
+        in trip: Trip,
+        then completionHandler: TripCompletionHandler? = nil
+    ) {
+        guard let dayIndex = trip.days.firstIndex(of: day) else {
+            completionHandler?(.failure(.noDayFoundForUpdate))
+            return
+        }
+        
+        guard let tripIndex = trips.firstIndex(of: trip) else {
+            completionHandler?(.failure(.noTripFoundForUpdate))
+            return
+        }
+        
+        var updatedTrip = trips[tripIndex]
+        var updatedDay = trip.days[dayIndex]
+        
+        updatedDay.activities.append(newActivity)
+        updatedDay.activities.sort()
+
+        updatedTrip.days[dayIndex] = updatedDay
+        trips[tripIndex] = updatedTrip
+        
+        completionHandler?(.success(updatedTrip))
     }
     
     

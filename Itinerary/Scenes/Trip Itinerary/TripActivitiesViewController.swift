@@ -10,17 +10,14 @@ import UIKit
 
 
 protocol TripActivitiesViewControllerDelegate: class {
-    func viewControllerDidSelectNewDay(_ controller: TripActivitiesViewController)
-    func viewControllerDidSelectNewActivities(_ controller: TripActivitiesViewController)
+    func viewControllerDidSelectAddDay(_ controller: TripActivitiesViewController)
+    func viewControllerDidSelectAddActivity(_ controller: TripActivitiesViewController)
 }
 
 
 class TripActivitiesViewController: UIViewController {
     @IBOutlet private var collectionView: UICollectionView!
     
-    weak var delegate: TripActivitiesViewControllerDelegate?
-    
-    // swiftlint:disable implicitly_unwrapped_optional
     var viewModel: TripActivitiesViewModel!
     
     var tripDays: [TripDay] = [] {
@@ -32,12 +29,16 @@ class TripActivitiesViewController: UIViewController {
         }
     }
 
+    weak var delegate: TripActivitiesViewControllerDelegate?
+    
     
     var currentDataSnapshot: DataSourceSnapshot!
     var dataSource: DataSource!
-    // swiftlint:enable implicitly_unwrapped_optional
-    
+}
 
+
+// MARK: - Initialization
+extension TripActivitiesViewController {
     static func instantiate(
         viewModel: TripActivitiesViewModel,
         tripDays: [TripDay],
@@ -52,6 +53,35 @@ class TripActivitiesViewController: UIViewController {
         viewController.delegate = delegate
         
         return viewController
+    }
+}
+
+
+// MARK: - Computeds
+extension TripActivitiesViewController {
+    
+    var addAlertControllerActions: [UIAlertAction] {
+        let newDayAction = UIAlertAction(
+            title: "New Day",
+            style: .default,
+            handler: { [weak self] (_) in
+                self?.delegate?.viewControllerDidSelectAddDay(self!)
+            }
+        )
+        
+        let newActivityAction = UIAlertAction(
+            title: "New Activity For Day",
+            style: .default,
+            handler: { [weak self] (_) in
+                self?.delegate?.viewControllerDidSelectAddActivity(self!)
+            }
+        )
+        
+        newActivityAction.isEnabled = !tripDays.isEmpty
+
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel)
+        
+        return [newDayAction, newActivityAction, cancelAction]
     }
 }
 
@@ -143,23 +173,7 @@ extension TripActivitiesViewController {
             preferredStyle: .actionSheet
         )
         
-        alertController.addAction(UIAlertAction(
-            title: "New Day",
-            style: .default,
-            handler: { [weak self] (_) in
-                self?.delegate?.viewControllerDidSelectNewDay(self!)
-            }
-        ))
-        
-        alertController.addAction(UIAlertAction(
-            title: "New Activities For Day",
-            style: .default,
-            handler: { [weak self] (_) in
-                self?.delegate?.viewControllerDidSelectNewActivities(self!)
-            }
-        ))
-
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        addAlertControllerActions.forEach { alertController.addAction($0) }
         
         alertController.popoverPresentationController?.barButtonItem = sender
 

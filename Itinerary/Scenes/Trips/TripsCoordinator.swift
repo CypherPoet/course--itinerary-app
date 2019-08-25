@@ -139,8 +139,24 @@ extension TripsCoordinator: TripItineraryCoordinatorDelegate {
                 completionHandler(.failure(error))
             }
         }
-        
     }
     
+
+    func coordinator(
+        _ coordinator: TripItineraryCoordinator,
+        didAdd newActivity: TripActivity,
+        to day: TripDay,
+        for trip: Trip,
+        then completionHandler: @escaping ((Result<Trip, Error>) -> Void)
+    ) {
+        tripsModelController.add(newActivity, to: day, in: trip) { result in
+            switch result {
+            case .success(let updatedTrip):
+                completionHandler(.success(updatedTrip))
+            case .failure(let error):
+                completionHandler(.failure(error))
+            }
+        }
+    }
     
 }

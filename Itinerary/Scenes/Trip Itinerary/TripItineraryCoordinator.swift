@@ -17,6 +17,14 @@ protocol TripItineraryCoordinatorDelegate: class {
         to trip: Trip,
         then completionHandler: @escaping ((Result<Trip, Error>) -> Void)
     )
+    
+    func coordinator(
+        _ coordinator: TripItineraryCoordinator,
+        didAdd newActivity: TripActivity,
+        to day: TripDay,
+        for trip: Trip,
+        then completionHandler: @escaping ((Result<Trip, Error>) -> Void)
+    )
 }
 
 
@@ -72,13 +80,21 @@ private extension TripItineraryCoordinator {
         
         navController.pushViewController(tripActivitiesViewController, animated: true)
     }
+    
+    
+    func presentChildNavController(for viewController: UIViewController) {
+        let childNavController = UINavigationController(rootViewController: viewController)
+        
+        Appearance.apply(to: childNavController.navigationBar)
+        navController.present(childNavController, animated: true)
+    }
 }
 
 
 // MARK: - TripActivitiesViewControllerDelegate
 extension TripItineraryCoordinator: TripActivitiesViewControllerDelegate {
 
-    func viewControllerDidSelectNewDay(_ controller: TripActivitiesViewController) {
+    func viewControllerDidSelectAddDay(_ controller: TripActivitiesViewController) {
         let newDayVC = AddEditDayViewController.instantiate(
             viewModel: AddEditDayViewModel(),
             delegate: self
@@ -86,15 +102,21 @@ extension TripItineraryCoordinator: TripActivitiesViewControllerDelegate {
         
         newDayVC.title = trip.title
         
-        let childNavController = UINavigationController(rootViewController: newDayVC)
-        
-        Appearance.apply(to: childNavController.navigationBar)
-        navController.present(childNavController, animated: true)
+        presentChildNavController(for: newDayVC)
     }
     
     
-    func viewControllerDidSelectNewActivities(_ controller: TripActivitiesViewController) {
-        // TODO: Implement
+    func viewControllerDidSelectAddActivity(_ controller: TripActivitiesViewController) {
+        let newActivitesVC = AddEditActivityViewController.instantiate(
+            viewModel: AddEditActivityViewModel(
+                availableDays: trip.days,
+                availableActivityTypes: TripActivityType.allCases
+            ),
+            delegate: self
+        )
+        
+        newActivitesVC.title = trip.title
+        presentChildNavController(for: newActivitesVC)
     }
 }
 
@@ -107,19 +129,19 @@ extension TripItineraryCoordinator: AddEditDayViewControllerDelegate {
     }
     
     func viewController(_ controller: AddEditDayViewController, didAdd newDay: TripDay) {
-        navController.dismiss(animated: true)
-  
         delegate?.coordinator(self, didAdd: newDay, to: trip) { [weak self] result in
             guard let self = self else { return }
             
             switch result {
             case .success(let newTrip):
+                self.navController.dismiss(animated: true)
+
                 self.modelController.trip = newTrip
                 self.tripActivitiesViewController.tripDays = self.modelController.sortedDays
             case .failure(let error):
                 let alertMessage: String
                 
-                if case TripsModelController.TripsModelControllerError.dayConflict = error {
+                if case TripsModelController.Error.dayConflict = error {
                     alertMessage = "This trip already has a day created for \(newDay.date.formattedDay)"
                 } else {
                     alertMessage = "An error occurred while trying to add a new day. Please try again."
@@ -131,4 +153,39 @@ extension TripItineraryCoordinator: AddEditDayViewControllerDelegate {
     }
     
     
+}
+
+
+
+// MARK: - AddEditActivityViewControllerDelegate
+extension TripItineraryCoordinator: AddEditActivityViewControllerDelegate {
+    
+    func viewControllerDidCancel(_ controller: AddEditActivityViewController) {
+        navController.dismiss(animated: true)
+    }
+    
+    
+    func viewController(
+        _ controller: AddEditActivityViewController,
+        didAdd newActivity: TripActivity,
+        for day: TripDay
+    ) {
+        
+        delegate?.coordinator(self, didAdd: newActivity, to: day, for: trip) {
+            [weak self] result in
+            guard let self = self else { return }
+            
+            switch result {
+            case .success(let newTrip):
+                self.navController.dismiss(animated: true, completion: {
+                    self.modelController.trip = newTrip
+                    self.tripActivitiesViewController.tripDays = self.modelController.sortedDays
+                })
+            case .failure(let error):
+                self.navController.display(
+                    alertMessage: "An error occurred while trying to add a new activity. Please try again."
+                )
+            }
+        }
+    }
 }
