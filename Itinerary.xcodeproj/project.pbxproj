@@ -79,6 +79,8 @@
 		F39C045B22DE99510053C76E /* UIColor+Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = F39C045A22DE99510053C76E /* UIColor+Theme.swift */; };
 		F3CDD186230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */; };
 		F3CDD188230442490025B8D5 /* FilledActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3CDD187230442490025B8D5 /* FilledActionButton.swift */; };
+		F3F2E6652314080600D709F5 /* IntroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2E6642314080500D709F5 /* IntroViewController.swift */; };
+		F3F2E66823140D9000D709F5 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F2E66723140D9000D709F5 /* IntroView.swift */; };
 		F3FB55C722DBB4D900BB31E7 /* UIView+AddShadow.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */; };
 		F3FB563422DBC8FC00BB31E7 /* Whitney-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FB562722DBC8FB00BB31E7 /* Whitney-Semibold.ttf */; };
 		F3FB563522DBC8FC00BB31E7 /* Whitney-MediumItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3FB562822DBC8FB00BB31E7 /* Whitney-MediumItalic.ttf */; };
@@ -185,6 +187,8 @@
 		F39C045A22DE99510053C76E /* UIColor+Theme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Theme.swift"; sourceTree = "<group>"; };
 		F3CDD185230416B30025B8D5 /* AddEditTripViewController+ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "AddEditTripViewController+ViewModel.swift"; path = "../../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/AddEditTripViewController+ViewModel.swift"; sourceTree = "<group>"; };
 		F3CDD187230442490025B8D5 /* FilledActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = FilledActionButton.swift; path = "../../../../../../../../../System/Volumes/Data/Users/briansipple/lxda/swift/itinerary-app-series/Itinerary/Itinerary/Scenes/Trips/Add-Edit Trip/FilledActionButton.swift"; sourceTree = "<group>"; };
+		F3F2E6642314080500D709F5 /* IntroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroViewController.swift; sourceTree = "<group>"; };
+		F3F2E66723140D9000D709F5 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 		F3FB55C622DBB4D900BB31E7 /* UIView+AddShadow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddShadow.swift"; sourceTree = "<group>"; };
 		F3FB562722DBC8FB00BB31E7 /* Whitney-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Whitney-Semibold.ttf"; sourceTree = "<group>"; };
 		F3FB562822DBC8FB00BB31E7 /* Whitney-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Whitney-MediumItalic.ttf"; sourceTree = "<group>"; };
@@ -307,6 +311,7 @@
 		F350F9B022FB1352002A1F23 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F3F2E66623140D7100D709F5 /* Intro View */,
 				F34C5797230C89C4006F4667 /* Collections */,
 				F3CDD187230442490025B8D5 /* FilledActionButton.swift */,
 			);
@@ -516,6 +521,7 @@
 				F31624AA229949B00059E49C /* LaunchScreen.storyboard */,
 				F366BD16230741FF0019E76A /* Trip Itinerary */,
 				F38A01D122D29E7700D8C5F3 /* Trips */,
+				F3F2E6642314080500D709F5 /* IntroViewController.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -540,6 +546,14 @@
 				F39C045022DE1D740053C76E /* Style.swift */,
 			);
 			path = Styling;
+			sourceTree = "<group>";
+		};
+		F3F2E66623140D7100D709F5 /* Intro View */ = {
+			isa = PBXGroup;
+			children = (
+				F3F2E66723140D9000D709F5 /* IntroView.swift */,
+			);
+			path = "Intro View";
 			sourceTree = "<group>";
 		};
 		F3FB55C522DBB4C000BB31E7 /* UIView */ = {
@@ -809,6 +823,7 @@
 				F35E4F3E230B5862009D9C57 /* MockData.swift in Sources */,
 				F366BD2E2308A5D20019E76A /* HashableFromId.swift in Sources */,
 				F366BD1A2307427D0019E76A /* TripActivitiesViewController.swift in Sources */,
+				F3F2E66823140D9000D709F5 /* IntroView.swift in Sources */,
 				F3729C4223123AD500EA4702 /* DayPickerDataSource.swift in Sources */,
 				F30C7404230445580091C07D /* TripsListHelpViewController.swift in Sources */,
 				F3927A8023112CAE00356BA8 /* AddEditActivityViewModel.swift in Sources */,
@@ -818,6 +833,7 @@
 				F366BD262308A0A40019E76A /* TripActivitiesViewModel.swift in Sources */,
 				F374B78122F6FA88006A712B /* AddEditTripViewController.swift in Sources */,
 				F366BD2A2308A3E90019E76A /* TripDay.swift in Sources */,
+				F3F2E6652314080600D709F5 /* IntroViewController.swift in Sources */,
 				F34C57DB230E5019006F4667 /* ActionSheet.swift in Sources */,
 				F38A01D322D2A5DC00D8C5F3 /* TripsCoordinator.swift in Sources */,
 				F34C57E1230F2EBA006F4667 /* AddEditDayViewController.swift in Sources */,

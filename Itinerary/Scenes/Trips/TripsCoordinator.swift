@@ -31,18 +31,13 @@ extension TripsCoordinator: Coordinator {
             delegate: self
         )
         
+        let introViewController = IntroViewController.instantiate(delegate: self)
+        
         tripsListVC.navigationItem.title = "My Trips"
         
         navController.navigationBar.prefersLargeTitles = true
-        navController.setViewControllers([tripsListVC], animated: true)
-        
-        if AppUserDefaults.isFirstRunOfApp.get(defaultValue: true) {
-           AppUserDefaults.isFirstRunOfApp.set(false)
-
-            DispatchQueue.main.asyncAfter(deadline: .now() + 1.23) {
-                self.showHelpViewOverlay()
-            }
-        }
+        navController.navigationBar.isHidden = true
+        navController.setViewControllers([tripsListVC, introViewController], animated: true)
     }
 }
 
@@ -158,5 +153,23 @@ extension TripsCoordinator: TripItineraryCoordinatorDelegate {
             }
         }
     }
+}
+
+
+extension TripsCoordinator: IntroViewControllerDelegate {
     
+    func viewControllerDidFinishAnimation(_ controller: IntroViewController) {
+        controller.performRemoval()
+
+        navController.viewControllers.removeAll(where: { $0 == controller })
+        navController.navigationBar.isHidden = false
+        
+        if AppUserDefaults.isFirstRunOfApp.get(defaultValue: true) {
+           AppUserDefaults.isFirstRunOfApp.set(false)
+
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1.23) {
+                self.showHelpViewOverlay()
+            }
+        }
+    }
 }
