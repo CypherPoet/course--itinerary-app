@@ -37,7 +37,6 @@ final class AppCoordinator: NavigationCoordinator {
 
 
 // MARK: - Navigation
-
 extension AppCoordinator {
     
     func showTrips() {
