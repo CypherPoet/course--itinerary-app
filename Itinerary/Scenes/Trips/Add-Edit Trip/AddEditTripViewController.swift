@@ -20,7 +20,7 @@ class AddEditTripViewController: UITableViewController {
     @IBOutlet private var destinationTextFieldLabel: UILabel!
     @IBOutlet private var doneButton: UIBarButtonItem!
     @IBOutlet private var mainTitleLabel: UILabel!
-    @IBOutlet var imagePickerButton: UIButton!
+    @IBOutlet private var imagePickerButton: UIButton!
     
     
     weak var delegate: AddEditTripViewControllerDelegate?
